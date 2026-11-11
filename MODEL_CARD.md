@@ -35,13 +35,17 @@ The recorded endpoint uses FP32 parameters, CUDA BF16 forwards and **logit >= 0*
 
 These metrics pool confusion counts over valid pixels before taking ratios. They are not per-image means or object-matching scores. [Results and definitions](docs/results.md) explain the distinction; [aggregate data](results/metrics.json) retain full precision.
 
+The final TEST point score is above every GLB entry in [Cryo-Bench v5, Table VIII-B](https://arxiv.org/html/2603.01576v5#S5.T8a): **87.84% versus the table-leading TerraMind score of 83.97% (+3.87 percentage points)**. This compares reported complete systems; GlacioLens adds physical DEM and a custom training recipe. [Detailed results](docs/results.md#external-scalar-reference) separate this unpaired scalar comparison from the matched released-reference analysis.
+
+Against the released frozen-encoder TerraMind reference on the same TEST tiles, tiny-target coverage at 50% increases from 20 to 143 of 275, object F1 from 48.63% to 60.18%, and boundary F1 from 64.22% to 74.23%. Zero-overlap false-object area falls from 572,160 to 492,974 pixels, while its count rises from 1,088 to 1,868. These object and boundary findings concern the reproduced frozen reference, not the paper's selected fine-tuned checkpoint.
+
 ## Limitations and tradeoffs
 
 One fresh final seed provides conditional evidence. Historical TEST exposure, shared acquisitions/aliases and a dependent GLBC cohort limit independent geographic interpretation. The fixed supplementary plan was shared with development, and the original internal paired uncertainty intervals include zero.
 
-P56 regressed against historical P53/P54 by **0.6537 percentage points** in TEST two-class mIoU and **1.6944 points** on GLBC. Small-object gains coexist with extra TEST false-positive area and GLBC large/border true-positive losses. False detections and complete lake extent remain limitations.
+P56 regressed against historical P53/P54 by **0.6537 percentage points** in TEST two-class mIoU and **1.6944 points** on GLBC. The documented false-detection tradeoffs and large/border extent losses against some internal systems remain limitations.
 
-The [published scalar comparison](docs/results.md#external-scalar-reference) is **+3.8673 percentage points** above the paper's 83.97% task-adapted TerraMind score. Additional DEM and a different complete recipe prevent isolated architecture attribution. It is unpaired, with no matched selected-checkpoint reproduction. No universal superiority, production readiness or deployment-safety claim is established.
+The complete-system comparison does not isolate an architecture or backbone gain. Selected fine-tuned reference predictions are unavailable for paired analysis; paired intervals are available for retained internal systems and released reference checkpoints, not for the paper's selected fine-tuned models. Qualification does not establish arbitrary-input or production readiness.
 
 ## Availability and software qualification
 
@@ -50,3 +54,9 @@ The source provides [CPU onboarding](docs/quickstart.md), research components, t
 The original P61 installed CLI on NVIDIA L4 used TEST indices **0/1/1912**, batches **[2,1]**, three intentional views and two calls. All three masks matched the retained P56 masks exactly, with unchanged selected state and original GeoTIFF geometry. This bounded interface check is separate from the full P56 scientific evaluation. P63 setup/preflight/Git maintenance was CPU-verified; the revised complete package and current documentation snapshot have not been newly executed on L4. Historical runtime hashes remain separately scoped in [source provenance](release/source_provenance.json).
 
 Owner-controlled source is published at [AliSajedifar/GlacioLens](https://github.com/AliSajedifar/GlacioLens) under [Apache-2.0](LICENSE), maintained by Ali Sajedifar. The original selected P56 weights are [publicly delivered](https://huggingface.co/MaxiWb/glaciolens-glb-v1) under the separately approved Apache-2.0 license. Data retain their own terms. [Release status](docs/release_status.md#owner-decisions) records current availability. See [citation guidance](docs/citation.md) for attribution.
+
+## Qualitative examples and exact metadata
+
+See the [three-case saved-prediction figure](docs/figures/glaciolens_qualitative.png) and its [case provenance](docs/figures/glaciolens_qualitative.json). These are illustrative selections with a retained difficult example, not a statistical sample. Dataset imagery/labels and derived metadata retain [CC BY 4.0 attribution](THIRD_PARTY_NOTICES.md#glb-and-glbc-data-attribution).
+
+The [CPU metadata verifier](data/manifests/README.md) checks exact ordered TRAIN/VAL/TEST/GLBC IDs, available raw-source hashes, alias/restoration annotations and the reconstructed materialized supplementary pool/plan. Original inputs, DEM preparation and a qualified portable end-to-end training harness remain separate requirements.

@@ -6,16 +6,41 @@ The [quickstart](quickstart.md) runs CPU metadata inspection and saved-mask eval
 
 | Asset | Required for | What this source release supplies |
 |---|---|---|
-| Registered GLB optical/SAR imagery | Training, evaluation and prediction | Contract and generic paths; no imagery. Obtain authorized upstream data separately. |
-| Pixel labels and original valid support | Training and evaluation | Label/support semantics; no labels or per-image support. Labels are not inference inputs. |
+| Registered GLB optical/SAR imagery | Training, evaluation and prediction | Contract and source-member mappings; a three-case attributed display figure only. Obtain original imagery separately. |
+| Pixel labels and original valid support | Training and evaluation | Label/support semantics and source-member mappings; no raw label rasters or per-image support. Labels are not inference inputs. |
 | Physical DEM and usable support | Model input in every cohort | Preparation contract and normalization; no elevation arrays. External GLO-30 source and equivalent prepared sidecars required. |
-| Exact TRAIN/VAL/TEST membership/order and GLBC identity | Reproduction and comparison | Counts and identity metadata; sealed per-image manifests/aliases remain privately retained. An upstream download alone does not establish exact membership. |
-| Fixed supplementary pool/plan | Recorded training | Public `build_pools`/`build_plan` logic; materialized source/anchor plan remains private and needs exact input membership/support to reproduce. |
+| Exact TRAIN/VAL/TEST membership/order and GLBC identity | Reproduction and comparison | [Exact ordered IDs, historical logical digests, raw-source mappings and alias/restoration annotations](../data/manifests/README.md), with a CPU verifier. |
+| Fixed supplementary pool/plan | Recorded training | Public `build_pools`/`build_plan` logic plus the [exact materialized pool and 24-epoch supplementary plan](../data/manifests/README.md), losslessly indexed and digest-verified. |
 | TerraMind pretrained initializer | Fresh training | Audited loading implementation, recorded pinning and upstream references; no initializer weights. Obtain independently under applicable terms. |
 | Selected P56 EMA12 weights | Selected-model inference | [Hash, byte size and tensor identity](../results/model_identity.json); original selected file [public on Hugging Face](https://huggingface.co/MaxiWb/glaciolens-glb-v1) under Apache-2.0; [pinned download](inference.md#checkpoint-download). |
 | Frozen normalization and aggregate metrics | Interpretation and implementation | [Normalization](../configs/normalization.json), [recipe](../configs/p56_recipe.json), [results](../results/metrics.json) bundled. |
 
 A hash establishes identity, not access or redistribution rights. [local_assets.example.json](../configs/local_assets.example.json) is a routing worksheet; no runner consumes that entire file. No owner authentication or hidden download is required by the public CPU tools.
+
+## Dataset version and split sizes
+
+GlacioLens uses the released Cryo-Bench GLB partition: **15,300 training, 1,912 validation and 1,913 test tiles (19,125 records)**. These counts match [Table II of Cryo-Bench v5](https://arxiv.org/html/2603.01576v5#S3.T2). The [GLB dataset-description preprint](https://essd.copernicus.org/preprints/essd-2026-474/) states 19,115 image-label pairs in its headline total. The reported GlacioLens results retain the exact released benchmark population; the difference between those source totals is not a reason to alter the evaluated split.
+
+The project's initial GLB archive contained 15,300 training, 1,912 validation and 1,907 test records. Six fixed TEST examples from the Cryo-Bench release were restored before the locked evaluations, producing the final 1,913-record TEST population. These six examples explain the difference between the project's initial archive and the benchmark release. They do **not** establish the cause of the ten-record difference from the dataset paper's headline total, which remains undocumented in the retained evidence.
+
+| Population | Training | Validation | Test | Total |
+|---|---:|---:|---:|---:|
+| Cryo-Bench v5, Table II | 15,300 | 1,912 | 1,913 | 19,125 |
+| GlacioLens recorded population | 15,300 | 1,912 | 1,913 | 19,125 |
+
+The 1,105-observation GLBC stress cohort is reported separately and is not part of the GLB total. Membership counts describe records in the specified release; they do not imply geographic independence or that every record contains different image content.
+
+### Verify exact metadata on CPU
+
+Run `python tools/verify_data_manifest.py` from the repository root. The [manifest guide](../data/manifests/README.md) defines file-byte versus logical digests, source hash coverage and the optional local-input check. The command also reconstructs the accepted supplementary pool and plan and matches both historical digests, without model imports.
+
+### Pinned upstream source
+
+- Dataset repository: [`Sk-21/Cryo-Bench`](https://huggingface.co/datasets/Sk-21/Cryo-Bench/tree/6e7236ec1145affdefa37877760e78ffbcaf68f8).
+- Dataset revision: `6e7236ec1145affdefa37877760e78ffbcaf68f8`.
+- GLB archive: `data/GLB.tar.gz`, **44,287,419,921 bytes**.
+- Archive SHA256 / Hugging Face LFS OID: `ef47a250d0bd3551c77ca1716967108c4ffa6bd56ae09f21cf02f4857ddfc085`.
+- Reference implementation: [`Sk-2103/Cryo-Bench`](https://github.com/Sk-2103/Cryo-Bench/tree/587a7e97912e0be149a3ed66086294373c39dd5a), commit `587a7e97912e0be149a3ed66086294373c39dd5a`.
 
 ## Input contract
 
@@ -75,7 +100,7 @@ This is the **completed P56 recipe**, not a runnable launch instruction. Counts:
 
 Recorded outputs have different meanings: selected weights are the EMA12 inference state; final full-resume state contains model/optimizer/EMA/RNG/progress for coherent continuation and is not the selected endpoint. Epoch logs describe 24 completed epochs; identity/selection records bind the choice; saved masks and per-image counts support pooled evaluation. The privately retained original source and evidence remain immutable. The public projection has documented path adapters and no owner storage orchestration.
 
-An implementer still needs exact authorized splits/order and aliases, prepared original-grid inputs/DEM, initial weights and their provenance, the fixed supplementary plan, a qualified batching/precision harness, tensor/gradient/initialization checks, coherent optimizer/EMA/RNG recovery and a validation/selection/export protocol. The public recipe inspector prints JSON; it does not supply those orchestration pieces. Do not substitute the distinct P53 package or fit another seed to present the accepted result.
+Exact split order, source mappings, supported aliases and the fixed materialized supplementary plan are now public. An implementer still needs prepared original-grid inputs/DEM, initial weights and their provenance, native epoch shuffling and a qualified batching/precision harness, tensor/gradient/initialization checks, coherent optimizer/EMA/RNG recovery and a validation/selection/export protocol. The public recipe inspector prints JSON; it does not supply those orchestration pieces. Do not substitute the distinct P53 package or fit another seed to present the accepted result.
 
 ## Recorded scientific environment
 

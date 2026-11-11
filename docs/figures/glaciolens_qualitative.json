@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "model": "GlacioLens-GLB-v1",
+  "scientific_identity": "P56 EMA12 / step 11484",
+  "checkpoint_sha256": "19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230",
+  "selection": "Illustrative selections, not a statistical sample. Three of five preselected cases, reviewed on original source imagery.",
+  "prediction_archive_sha256": "79ec49417ce6b01fd2c8ad0e3f3ef77c1d2274c4e60ec001a52fec85d2e26026",
+  "prediction_keys": [
+    "TEST_ids",
+    "TEST_P56_SELECTED"
+  ],
+  "packing": {
+    "axis": -1,
+    "bitorder": "big",
+    "native_width": 256
+  },
+  "source_dataset": "https://zenodo.org/records/17917359",
+  "source_archive": "Glacial_Lake_Bench.zip",
+  "source_archive_bytes": 44268636160,
+  "source_archive_historical_sha256": "746a63d71e5393bb736de9153d569cf3c7eb0194408dd4d87258a73dee499cdc",
+  "source_archive_full_downloaded": false,
+  "band_order_basis": "Zenodo record description: Blue, Green, Red, NIR, SWIR1, SWIR2, NDWI, Slope, Elevation, VV, VH. Selected raster per-band descriptions are absent; file-byte identities match retained inputs.",
+  "support": "All 65,536 original pixels valid in each selected image and label; target encoding 0/1; no mask resampling or edits.",
+  "display_adaptations": "RGB slots [2,1,0], per-band 2nd-98th percentile stretch over valid pixels; nearest-neighbor label/prediction/error display; matched 64x64 small-lake insets.",
+  "figure": {
+    "path": "docs/figures/glaciolens_qualitative.png",
+    "sha256": "f52728ae2db6cea535957d6055bd4ba0d9c10f46d4909503f1070a52f14ebdab",
+    "bytes": 574569,
+    "width": 1920,
+    "height": 1544
+  },
+  "cases": [
+    {
+      "id": "NZ_S2B_59GLM_20200814_1_L2A_1",
+      "role": "ordinary_strong",
+      "source_image_member": "Glacial_Lake_Bench/img_dir/test/NZ_S2B_59GLM_20200814_1_L2A_1.tif",
+      "source_label_member": "Glacial_Lake_Bench/ann_dir/test/NZ_S2B_59GLM_20200814_1_L2A_1.tif",
+      "image_sha256": "e849455b7cea0cdfb206657b43c3571d8632a5cdc136af13effef35e6332302c",
+      "label_sha256": "cb1843a6b23da3a0e9f06277897dd2e19a20222a68e5b1ba788b9330c470f653",
+      "prediction_index": 1159,
+      "packed_prediction_sha256": "e8375d0bd38346e4e8eab4a5535ae12b26a9c9199a4edd34d5192369bfcafa88",
+      "geometry": {
+        "crs": "EPSG:32759",
+        "transform": [
+          10.0,
+          0.0,
+          317920.0,
+          0.0,
+          -10.0,
+          5092760.0
+        ],
+        "height": 256,
+        "width": 256,
+        "image_nodata": null,
+        "label_nodata": null,
+        "band_descriptions": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "valid_pixels": 65536,
+      "counts": {
+        "tp": 2355,
+        "fp": 122,
+        "fn": 168,
+        "tn": 62891
+      },
+      "lake_iou_percent": 89.03591682419659,
+      "rgb_zero_based_slots": [
+        2,
+        1,
+        0
+      ],
+      "rgb_bands": [
+        "Red",
+        "Green",
+        "Blue"
+      ],
+      "display_percentiles": [
+        2,
+        98
+      ],
+      "rgb_low": [
+        0.013030980713665485,
+        0.01463999506086111,
+        0.0016146060079336166
+      ],
+      "rgb_high": [
+        0.8400511145591736,
+        0.8394649028778076,
+        0.8236353397369385
+      ],
+      "gt_component_areas_8connected": [
+        2523
+      ],
+      "inset_xyxy": null
+    },
+    {
+      "id": "AK_S2A_9VVC_20200909_0_L2A_231",
+      "role": "small_lake",
+      "source_image_member": "Glacial_Lake_Bench/img_dir/test/AK_S2A_9VVC_20200909_0_L2A_231.tif",
+      "source_label_member": "Glacial_Lake_Bench/ann_dir/test/AK_S2A_9VVC_20200909_0_L2A_231.tif",
+      "image_sha256": "4d0b5fd75e8670747f4976261b4555beb33ba29764d2c7a1c04bab414464043c",
+      "label_sha256": "9276fa38827bf38b74e7a8abd2c6dd4429a7b600119b34fed45d24287ae5fbff",
+      "prediction_index": 423,
+      "packed_prediction_sha256": "97029812d8587bbc134f5f894e71f313d83b9d79fb4bf4ff6eedc44825b13433",
+      "geometry": {
+        "crs": "EPSG:32609",
+        "transform": [
+          10.0,
+          0.0,
+          471640.0,
+          0.0,
+          -10.0,
+          6297720.0
+        ],
+        "height": 256,
+        "width": 256,
+        "image_nodata": null,
+        "label_nodata": null,
+        "band_descriptions": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "valid_pixels": 65536,
+      "counts": {
+        "tp": 73,
+        "fp": 17,
+        "fn": 8,
+        "tn": 65438
+      },
+      "lake_iou_percent": 74.48979591836735,
+      "rgb_zero_based_slots": [
+        2,
+        1,
+        0
+      ],
+      "rgb_bands": [
+        "Red",
+        "Green",
+        "Blue"
+      ],
+      "display_percentiles": [
+        2,
+        98
+      ],
+      "rgb_low": [
+        0.0037280875258147717,
+        0.007164713926613331,
+        7.490075920602024e-11
+      ],
+      "rgb_high": [
+        0.11874355375766754,
+        0.1039629802107811,
+        0.0701071098446846
+      ],
+      "gt_component_areas_8connected": [
+        81
+      ],
+      "inset_xyxy": [
+        40,
+        192,
+        104,
+        256
+      ]
+    },
+    {
+      "id": "NZ_S2B_59GMM_20200814_0_L2A_150",
+      "role": "hard_extent",
+      "source_image_member": "Glacial_Lake_Bench/img_dir/test/NZ_S2B_59GMM_20200814_0_L2A_150.tif",
+      "source_label_member": "Glacial_Lake_Bench/ann_dir/test/NZ_S2B_59GMM_20200814_0_L2A_150.tif",
+      "image_sha256": "ec6f6d4d321fc812721a24749c324abbbe8e8c35246a1b7c04516a8d5671c84b",
+      "label_sha256": "11b2701a7dd2e5767fbb306170cd2b64ca3e3d66aeaf78182a332f6e6bec43e8",
+      "prediction_index": 1162,
+      "packed_prediction_sha256": "200e3b6d1f462e0a808a19d54672be1d70795bd5f587313c624d7d7c0a68cba2",
+      "geometry": {
+        "crs": "EPSG:32759",
+        "transform": [
+          10.0,
+          0.0,
+          463960.0,
+          0.0,
+          -10.0,
+          5151640.0
+        ],
+        "height": 256,
+        "width": 256,
+        "image_nodata": null,
+        "label_nodata": null,
+        "band_descriptions": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "valid_pixels": 65536,
+      "counts": {
+        "tp": 1725,
+        "fp": 6,
+        "fn": 4016,
+        "tn": 59789
+      },
+      "lake_iou_percent": 30.01566034452758,
+      "rgb_zero_based_slots": [
+        2,
+        1,
+        0
+      ],
+      "rgb_bands": [
+        "Red",
+        "Green",
+        "Blue"
+      ],
+      "display_percentiles": [
+        2,
+        98
+      ],
+      "rgb_low": [
+        0.2731517553329468,
+        0.16916042566299438,
+        0.14124548435211182
+      ],
+      "rgb_high": [
+        0.6867704391479492,
+        0.5993350148200989,
+        0.5983754396438599
+      ],
+      "gt_component_areas_8connected": [
+        5741
+      ],
+      "inset_xyxy": null
+    }
+  ],
+  "attribution": {
+    "dataset": "Glacial-Lake-Bench, Kaushik et al. (2026), Zenodo 17917359",
+    "dataset_authors": [
+      "Saurabh Kaushik",
+      "Beth Tellman",
+      "Ian Howat",
+      "Umesh Haritashya",
+      "Lalit Maurya"
+    ],
+    "paper": "https://doi.org/10.5194/essd-2026-474",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "adaptations_by": "GlacioLens"
+  }
+}

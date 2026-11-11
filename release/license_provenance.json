@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "review_phase": "P63 accounting update; original P60/P61 license review retained",
-  "scope": "Published Apache-2.0 owner-controlled source; upstream implementations and datasets retain their own terms.",
+  "review_phase": "P67 qualitative preview and exact reproduction metadata; prior source/runtime license evidence retained",
+  "scope": "Published Apache-2.0 owner-controlled source and selected weights; explicitly attributed GLB/GLBC derived figure and metadata retain CC BY 4.0.",
   "owner_copyright_identity": null,
   "official_license": {
     "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
@@ -60,7 +60,8 @@
         "docs/figures/p56_results.png",
         "results/metrics.csv",
         "results/metrics.json",
-        "results/model_identity.json"
+        "results/model_identity.json",
+        "results/benchmark_comparison.csv"
       ],
       "origin": "Project recipe, aggregate statistics, selected identity, example asset routing and self-authored plot; no raw samples, split lists or model tensors.",
       "license": "Apache-2.0",
@@ -80,7 +81,8 @@
         "src/glacial_lake/cli.py",
         "src/glacial_lake/manifest_check.py",
         "src/glacial_lake/saved_counts.py",
-        "tools/build_public_source.py"
+        "tools/build_public_source.py",
+        "tools/verify_data_manifest.py"
       ],
       "origin": "Project CLI, standard-library allowlist exporter, CPU mask/manifest utilities and synthetic fixture generator. Imported dependencies are separate distributions.",
       "license": "Apache-2.0",
@@ -135,10 +137,34 @@
         "LICENSE",
         "THIRD_PARTY_NOTICES.md"
       ]
+    },
+    {
+      "category": "dataset_derived_preview_and_metadata",
+      "files": [
+        "data/manifests/README.md",
+        "data/manifests/auxiliary_plan.json",
+        "data/manifests/auxiliary_pool.json",
+        "data/manifests/glbc_ids.json",
+        "data/manifests/release.json",
+        "data/manifests/source_members.csv",
+        "data/manifests/split_aliases.csv",
+        "data/manifests/test_ids.json",
+        "data/manifests/train_ids.json",
+        "data/manifests/val_ids.json",
+        "docs/figures/glaciolens_qualitative.json",
+        "docs/figures/glaciolens_qualitative.png"
+      ],
+      "origin": "Exact GLB/GLBC memberships and source mappings, retained sampling components/crops, and selected original-raster/saved-P56-prediction display. Dataset: Zenodo 17917359; adaptations by GlacioLens.",
+      "license": "CC-BY-4.0",
+      "retained_notices": [
+        "THIRD_PARTY_NOTICES.md#glb-and-glbc-data-attribution",
+        "data/manifests/README.md",
+        "docs/figures/glaciolens_qualitative.json"
+      ]
     }
   ],
   "coverage": {
-    "files": 64,
+    "files": 78,
     "every_member_exactly_once": true
   },
   "upstream": [
@@ -197,10 +223,10 @@
     }
   ],
   "comparison": {
-    "public_python_files": 31,
+    "public_python_files": 35,
     "upstream_python_files": 41,
     "substantial_exact_function_matches": [],
-    "limitation": "Supplementary AST comparison is not ownership proof. Manual review covered loaders, model factory audits, live-context hook, project losses, scientific component/source projection and dependency headers."
+    "limitation": "Supplementary AST comparison is not ownership proof. Manual review covered loaders, model factory audits, live-context hook, project losses, scientific component/source projection and dependency headers. P67 adds a standard-library metadata verifier; the original upstream AST comparison is historical and was not rerun."
   },
   "copied_external_implementation_members": [],
   "source_headers_changed": [],
@@ -230,8 +256,10 @@
     {
       "asset": "GLB/GLBC imagery, labels and split lists",
       "verified_terms": "Zenodo record 17917359 declares CC BY 4.0, open access; deposit calls challenge component GLC",
-      "included": false,
-      "unresolved": "Exact local derivatives/splits and underlying-provider obligations not individually verified for redistribution"
+      "included": "Attributed three-case display preview and sanitized split/source/sampling metadata only; no raw raster datasets.",
+      "scope_note": "Only the reviewed attributed preview and sanitized metadata are redistributed. Raw rasters and DEM sidecars remain excluded; applicable provider notices are retained.",
+      "license": "CC-BY-4.0",
+      "notice": "THIRD_PARTY_NOTICES.md#glb-and-glbc-data-attribution"
     },
     {
       "asset": "Copernicus GLO-30 / adapted sidecars",

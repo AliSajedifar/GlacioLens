@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "license": "CC-BY-4.0",
+  "source_dataset": "https://zenodo.org/records/17917359",
+  "dataset_paper": "https://doi.org/10.5194/essd-2026-474",
+  "dataset_authors": [
+    "Saurabh Kaushik",
+    "Beth Tellman",
+    "Ian Howat",
+    "Umesh Haritashya",
+    "Lalit Maurya"
+  ],
+  "benchmark": {
+    "name": "Cryo-Bench",
+    "paper_version": "arXiv:2603.01576v5",
+    "split_table_url": "https://arxiv.org/html/2603.01576v5#S3.T2",
+    "GLB_split_counts": {
+      "train": 15300,
+      "val": 1912,
+      "test": 1913,
+      "total": 19125
+    },
+    "code_repository": "https://github.com/Sk-2103/Cryo-Bench",
+    "code_revision": "587a7e97912e0be149a3ed66086294373c39dd5a",
+    "dataset_repository": "https://huggingface.co/datasets/Sk-21/Cryo-Bench",
+    "dataset_revision": "6e7236ec1145affdefa37877760e78ffbcaf68f8",
+    "archive": {
+      "path": "data/GLB.tar.gz",
+      "bytes": 44287419921,
+      "sha256_lfs_oid": "ef47a250d0bd3551c77ca1716967108c4ffa6bd56ae09f21cf02f4857ddfc085",
+      "identity_basis": "Retained official Hugging Face repository tree metadata; the full archive was not downloaded again for this documentation task."
+    }
+  },
+  "original_GLB_archive": {
+    "name": "Glacial_Lake_Bench.zip",
+    "bytes": 44268636160,
+    "historical_sha256": "746a63d71e5393bb736de9153d569cf3c7eb0194408dd4d87258a73dee499cdc",
+    "md5": "a373b0d3833126875c4b724bf75ce63a"
+  },
+  "GLBC_archive": {
+    "url": "https://zenodo.org/api/records/17917359/files/Glacial-Lake-Challenge.zip/content",
+    "size": 2588538597,
+    "checksum": "md5:f2a9a1e83eb4ca0a5d37544f282ae51f"
+  },
+  "count_reconciliation": {
+    "initial_project_archive": {
+      "train": 15300,
+      "val": 1912,
+      "test": 1907,
+      "total": 19119
+    },
+    "restored_TEST_records": 6,
+    "locked_GLB_total": 19125,
+    "paper_headline_difference": 10,
+    "cause_of_paper_headline_difference": "Not established by retained evidence. The six restored TEST records explain 19119 to 19125, not 19115 to 19125.",
+    "action": "Preserve executed populations and document the difference between source statements."
+  },
+  "logical_digest_definition": "SHA256(json.dumps(value, sort_keys=True, separators=(comma,colon), allow_nan=False).encode(utf-8)); default ensure_ascii=True; no final newline; list order preserved.",
+  "cohorts": {
+    "train": {
+      "count": 15300,
+      "file": "train_ids.json",
+      "ordered_ids_logical_sha256": "1ac2727b85c8107568e137f0084a26af745d34323b42c50e9ec44b81797d2fc8"
+    },
+    "val": {
+      "count": 1912,
+      "file": "val_ids.json",
+      "ordered_ids_logical_sha256": "86f862a7b6c792fc40b7e4ce6de9e18d5c083b287f7a62efab83b9c644855fe2"
+    },
+    "test": {
+      "count": 1913,
+      "file": "test_ids.json",
+      "ordered_ids_logical_sha256": "f7cc1435308ad1eb0a9cad86208189b62a7f4263893017995b62e2ec7d95ba4c"
+    },
+    "glbc": {
+      "count": 1105,
+      "file": "glbc_ids.json",
+      "ordered_ids_logical_sha256": "f37a17b17b9c06658a5b4c0c29d9af923bafb2659d506a26678ee13dd8d5e7e3"
+    }
+  },
+  "source_member_hash_coverage": {
+    "image": 19125,
+    "label": 17223
+  },
+  "source_members_rows": 20230,
+  "alias_relationship_counts": {
+    "image_byte_identity": 2,
+    "equal_native_grid": 3,
+    "release_restored_record": 6
+  },
+  "restored_test_ids": [
+    "ACS_S2A_20WMT_20200821_1_L2A_82",
+    "ACS_S2B_18WVE_20200725_1_L2A_185",
+    "AC_S2A_16XDK_20200809_2_L2A_4",
+    "AC_S2A_19XDL_20200808_2_L2A_175",
+    "AK_S2B_5VNJ_20200911_0_L2A_2",
+    "WC_S2B_10UDA_20200816_0_L2A_198"
+  ],
+  "auxiliary": {
+    "encoding": "Lossless pool-object and TRAIN-index references; decode with tools/verify_data_manifest.py::load_sampling",
+    "pool_logical_sha256": "b3b7f54e5975d8bdc8add750fa9225a3e033364f69f5c6b774baed66f4e77502",
+    "plan_logical_sha256": "2e0bfe01a68804b7d54c3106cf70abfbfafa41e50742f02474b05a085fc75b7d",
+    "epochs": 24,
+    "views": 91824,
+    "pool_objects": 24408,
+    "schedule_summary": {
+      "fallback_counts": {},
+      "plan_sha256": "2e0bfe01a68804b7d54c3106cf70abfbfafa41e50742f02474b05a085fc75b7d",
+      "requested_cells": {
+        "COMPLETE:0": 11478,
+        "COMPLETE:1": 11478,
+        "EDGE:0": 11478,
+        "EDGE:1": 11478,
+        "SMALL:0": 22956,
+        "TINY:0": 22956
+      },
+      "roles": {
+        "COMPLETE": 22956,
+        "EDGE": 22956,
+        "SMALL": 22956,
+        "TINY": 22956
+      },
+      "total_aux_views": 91824
+    },
+    "pool_summary": {
+      "all_component_counts": {
+        "all_components": 29377,
+        "invalid_contact": 0
+      },
+      "anchor_area": {
+        "COMPLETE": {
+          "max": 23284,
+          "median": 567.0,
+          "min": 256
+        },
+        "EDGE": {
+          "max": 65536,
+          "median": 1346.0,
+          "min": 256
+        },
+        "SMALL": {
+          "max": 255,
+          "median": 132.0,
+          "min": 64
+        },
+        "TINY": {
+          "max": 63,
+          "median": 48.0,
+          "min": 20
+        }
+      },
+      "cells": {
+        "COMPLETE": {
+          "0": {
+            "images": 5675,
+            "objects": 7314
+          },
+          "1": {
+            "images": 262,
+            "objects": 263
+          }
+        },
+        "EDGE": {
+          "0": {
+            "images": 4101,
+            "objects": 4762
+          },
+          "1": {
+            "images": 1631,
+            "objects": 1673
+          }
+        },
+        "SMALL": {
+          "0": {
+            "images": 5639,
+            "objects": 8243
+          }
+        },
+        "TINY": {
+          "0": {
+            "images": 1545,
+            "objects": 2153
+          }
+        }
+      },
+      "fit_window_exclusions": {},
+      "ordered_train_ids_sha256": "1ac2727b85c8107568e137f0084a26af745d34323b42c50e9ec44b81797d2fc8",
+      "pool_sha256": "b3b7f54e5975d8bdc8add750fa9225a3e033364f69f5c6b774baed66f4e77502",
+      "train_images": 15300
+    }
+  },
+  "scope": "Frozen ordered memberships and materialized supplementary schedule, not epoch-level native shuffling or a portable full trainer. Blank raw-file hashes are unavailable, not verified. Equal-grid and byte-identity relations are distinct; annotations do not remove records. GLBC dependence remains described in the results.",
+  "files": {
+    "auxiliary_plan.json": {
+      "bytes": 2094362,
+      "sha256": "da657ff78c8bb55e5c4dfef8bd23a3460fdc85faa1ab62aa4d821ebaf6c7b036"
+    },
+    "auxiliary_pool.json": {
+      "bytes": 1234491,
+      "sha256": "a27323b77cc1380dca4acbd6619f553f1add2e2f4a9ac606c1a17411fc681ebc"
+    },
+    "glbc_ids.json": {
+      "bytes": 33252,
+      "sha256": "df098e84f6a327f979427a7c3ec0ea8f7fdd9c66c05ed8c264dcad8e78790443"
+    },
+    "source_members.csv": {
+      "bytes": 6369244,
+      "sha256": "d112b46501fcaef856fb27db758ee0db1b491208e93d0742440bccbc342951ad"
+    },
+    "split_aliases.csv": {
+      "bytes": 1848,
+      "sha256": "58a57a838860d6343ff3cbb04286b33b218cd1820b27889324f7c43db2e08ab9"
+    },
+    "test_ids.json": {
+      "bytes": 63581,
+      "sha256": "8530b92b4af68e9f30c40f58b4ee394ba7ed0c6fa4cebcc0e2c46f366930a413"
+    },
+    "train_ids.json": {
+      "bytes": 890606,
+      "sha256": "de40bb577537dd88d8d0f48026df85a461a9d6b6402d0ae565a94bd41de8dab7"
+    },
+    "val_ids.json": {
+      "bytes": 107495,
+      "sha256": "1e15c49ce791405d40d71406f091b9a49a768af30ed597bb86b2388f46834aed"
+    },
+    "README.md": {
+      "bytes": 5216,
+      "sha256": "18e203ffe4787cf88add517d256591ace38d120a60612f9de8bc38d817bee760"
+    }
+  },
+  "source_member_hash_coverage_note": "All 19,125 GLB images have retained raw-file SHA256 values. Raw labels: all 17,212 TRAIN/VAL, six restored TEST and five figure-shortlist TEST labels (17,223 total). Other 1,902 TEST label hashes and 1,105 GLBC image/label hashes are unavailable in this export. Actual raw-byte rechecks in P67 were limited to the ten retrieved shortlist members."
+}

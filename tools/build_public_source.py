@@ -14,6 +14,12 @@ from pathlib import Path, PurePosixPath
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = "glacial_lake_detection/"
 ALLOWED_SUFFIXES = {".py", ".md", ".json", ".csv", ".toml", ".txt", ".png"}
+# Reviewed metadata only; keep the default small-member limit for every other path.
+MEMBER_SIZE_LIMITS = {
+    "data/manifests/source_members.csv": 7_000_000,
+    "data/manifests/auxiliary_pool.json": 1_500_000,
+    "data/manifests/auxiliary_plan.json": 2_500_000,
+}
 ALLOWED_DOTFILES = {".gitignore", ".gitattributes", "LICENSE"}
 BLOCKED_PARTS = {"_local", ".git", ".cache", ".tools", ".venv-mcp", ".codex", "__pycache__", "user_assets"}
 PATTERNS = {
@@ -42,7 +48,7 @@ def safe_path(relative):
         raise ValueError("Nonregular export member")
     if p.suffix not in ALLOWED_SUFFIXES and relative not in ALLOWED_DOTFILES:
         raise ValueError("Unexpected file type")
-    if p.stat().st_size > 1_000_000:
+    if p.stat().st_size > MEMBER_SIZE_LIMITS.get(relative, 1_000_000):
         raise ValueError("Unexpected large member")
     return p
 
@@ -177,7 +183,9 @@ def build(private_terms=None):
                                  "actual_archive_text_scanned": True, "png_preview_metadata_free": True,
                                  "generic_patterns": len(PATTERNS),
                                  "known_private_terms_checked": len(terms), "findings": [],
-                                 "no_datasets_weights_internal_reports_or_notebooks": True,
+                                 "no_raw_datasets_weights_internal_reports_or_notebooks": True,
+                                 "reviewed_dataset_derived_preview_and_metadata_only": True,
+                                 "path_specific_metadata_size_limits": MEMBER_SIZE_LIMITS,
                                  "runtime_execution_checked_by_exporter": False,
                                  "runtime_qualification_evidence_is_separate": True}}
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")

@@ -19,12 +19,25 @@ The model integrates TerraMind-Large and a UPerNet decoder with optical/SAR inpu
 
 GlacioLens-GLB-v1 records **87.8373% two-class mIoU /76.7644% lake IoU on TEST1913** and **83.7493% /69.0553% on the dependent GLBC1105 stress cohort**. The [results guide](results.md) and [aggregate metrics](../results/metrics.json) give denominators, full precision and metric definitions.
 
-The TEST two-class mIoU is **3.8673 percentage points** above the published task-adapted TerraMind scalar of 83.97% in [Cryo-Bench v5, Table VIII-B](https://arxiv.org/html/2603.01576v5). This is an unpaired complete-system comparison with different inputs/training: GlacioLens adds physical DEM and its own recipe. The selected reference checkpoint and execution overrides were not reproduced. The difference does not establish a backbone-specific gain or matched-budget superiority.
+The TEST two-class mIoU of **87.84% exceeds all 15 GLB scores in [Cryo-Bench v5, Table VIII-B](https://arxiv.org/html/2603.01576v5#S5.T8a)**. The highest reported comparator is TerraMind at 83.97%, giving a **+3.87 percentage-point** difference. This compares reported complete systems with different inputs/training: GlacioLens adds physical DEM and its own recipe. The paper's selected reference checkpoints were not reproduced.
 
-The accepted P56 result is lower than the historical P53/P54 development result. Small-object gains coexist with additional TEST false-positive area and GLBC large/border losses. One final seed, historical TEST exposure, shared acquisitions/aliases and GLBC dependence limit geographic and robustness claims. [The model card](../MODEL_CARD.md) keeps those limitations alongside the release identity.
+A separate comparison of saved predictions on identical test tiles demonstrates improved small-lake coverage, object matching and boundary quality over released frozen-encoder TerraMind/CROMA and released U-Net references. Tiny-target coverage at 50% rises from **20 to 143 of 275** against frozen TerraMind; boundary F1 rises from **64.22% to 74.23%**. Entirely false-object area decreases, while their count increases against TerraMind. The [comparison tables](results.md#small-lakes-boundaries-and-false-detections) show exact definitions and all measured tradeoffs.
+
+The accepted P56 result is lower than the historical P53/P54 development result. The documented false-detection tradeoffs and large/border extent losses against some internal systems remain limitations. One final seed, historical TEST exposure, shared acquisitions/aliases and GLBC dependence limit geographic and robustness claims. [The model card](../MODEL_CARD.md) keeps those limitations alongside the release identity.
 
 ## Availability and next steps
 
 Start with the [CPU quickstart](quickstart.md) to inspect metadata and evaluate synthetic saved masks. Users who already have the exact checkpoint and valid inputs can follow the [native-inference guide](inference.md). The original P61 CLI qualification covered three prescribed L4 images in batches [2,1], with zero differing pixels, unchanged state and exact geometry. Later CPU-verified maintenance and this source snapshot do not extend that qualification to arbitrary devices, inputs or batching.
 
 The [source repository](https://github.com/AliSajedifar/GlacioLens) is published under Apache-2.0, maintained by Ali Sajedifar. Selected P56 weights are [public on Hugging Face](https://huggingface.co/MaxiWb/glaciolens-glb-v1) under Apache-2.0, with their original byte size and SHA256 verified. A portable full training launcher is not supplied. [Release status](release_status.md) separates current capabilities, licensing and model delivery. For deeper technical review, follow the [identity](../results/model_identity.json), [recorded recipe](../configs/p56_recipe.json), [input preparation](reproduction.md) and [source provenance](../release/source_provenance.json).
+
+
+## Portfolio summary
+
+- Developed and fine-tuned a TerraMind-Large/UPerNet segmentation system combining optical imagery, stored SAR channels and physical elevation, with a custom 57,249-parameter spatial refinement branch and component-aware training objectives.
+- Achieved 87.84% two-class mIoU and 76.76% lake IoU on the documented 1,913-tile GLB test split, above all 15 GLB scores in Cryo-Bench v5 Table VIII-B in a reported complete-system comparison.
+- Published Apache-2.0 source and model weights with a GeoTIFF inference CLI, raster-alignment checks, frozen preprocessing, checkpoint-integrity validation and documented evaluation scope.
+
+## Inspect the released evidence
+
+The [qualitative figure](figures/glaciolens_qualitative.png) shows three illustrative saved-prediction cases, including a real extent error. [Exact ordered split and supplementary sampling metadata](../data/manifests/README.md) can be verified on CPU against their historical digests. These release artifacts improve inspectability while the full training harness remains unqualified for portable reproduction.

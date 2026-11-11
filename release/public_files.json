@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "purpose": "Explicit reviewed source-only export; no recursive discovery at export time",
+  "purpose": "Explicit reviewed source, attributed qualitative preview and sanitized reproduction metadata; no recursive discovery at export time",
   "files": [
     ".gitattributes",
     ".gitignore",
@@ -11,7 +11,19 @@
     "configs/local_assets.example.json",
     "configs/normalization.json",
     "configs/p56_recipe.json",
+    "data/manifests/README.md",
+    "data/manifests/auxiliary_plan.json",
+    "data/manifests/auxiliary_pool.json",
+    "data/manifests/glbc_ids.json",
+    "data/manifests/release.json",
+    "data/manifests/source_members.csv",
+    "data/manifests/split_aliases.csv",
+    "data/manifests/test_ids.json",
+    "data/manifests/train_ids.json",
+    "data/manifests/val_ids.json",
     "docs/citation.md",
+    "docs/figures/glaciolens_qualitative.json",
+    "docs/figures/glaciolens_qualitative.png",
     "docs/figures/p56_results.png",
     "docs/inference.md",
     "docs/method.md",
@@ -28,6 +40,7 @@
     "release/public_files.json",
     "release/source_provenance.json",
     "requirements-science-recorded.txt",
+    "results/benchmark_comparison.csv",
     "results/metrics.csv",
     "results/metrics.json",
     "results/model_identity.json",
@@ -65,6 +78,7 @@
     "src/glacial_lake/saved_counts.py",
     "src/glacial_lake/uncertainty.py",
     "tools/bootstrap_inference.py",
-    "tools/build_public_source.py"
+    "tools/build_public_source.py",
+    "tools/verify_data_manifest.py"
   ]
 }
