@@ -2,6 +2,7 @@
 *.py text eol=lf
 *.md text eol=lf
 *.json text eol=lf
+CITATION.cff text eol=lf
 # Exported metadata file-byte hashes must also survive Windows checkouts.
 data/manifests/** text eol=lf
 # Preserve exact runtime/provenance bytes without disabling normal text diffs.

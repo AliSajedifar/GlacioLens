@@ -5,6 +5,7 @@
     ".gitattributes",
     ".github/workflows/cpu.yml",
     ".gitignore",
+    "CITATION.cff",
     "LICENSE",
     "MODEL_CARD.md",
     "README.md",

@@ -86,6 +86,10 @@ Installation exercises and metadata tools are in the [CPU quickstart](docs/quick
 
 Results reflect one final seed on the recorded GLB split, with historical development exposure. See the [model card](MODEL_CARD.md#limitations-and-tradeoffs) for the full evaluation protocol and generalization scope.
 
+## Citation
+
+If you use GlacioLens in your research, please cite this software using GitHub's **Cite this repository** button ([citation metadata](CITATION.cff)) or the [citation guide](docs/citation.md). The guide explains how to record the source and model revisions used and acknowledge upstream work.
+
 ## License, attribution and maintainer
 
 Created and maintained by [Ali Sajedifar](https://github.com/AliSajedifar). Source and released model weights are available under **[Apache-2.0](LICENSE)**. Imagery, labels and elevation products retain their own terms. See [third-party notices](THIRD_PARTY_NOTICES.md) and [citation guidance](docs/citation.md).

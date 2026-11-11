@@ -1,0 +1,12 @@
+cff-version: "1.2.0"
+message: "If you use GlacioLens in your research, please cite this software. Please also acknowledge the relevant upstream models and datasets described in the documentation."
+type: software
+title: "GlacioLens: TerraMind-Based Multimodal Glacial Lake Segmentation"
+authors:
+  - family-names: "Sajedifar"
+    given-names: "Ali"
+version: "0.1.0"
+date-released: "2026-11-11"
+repository-code: "https://github.com/AliSajedifar/GlacioLens"
+url: "https://github.com/AliSajedifar/GlacioLens"
+license: "Apache-2.0"

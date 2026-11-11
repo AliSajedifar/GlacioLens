@@ -27,7 +27,7 @@ MEMBER_SIZE_LIMITS = {
     "data/manifests/auxiliary_pool.json": 1_500_000,
     "data/manifests/auxiliary_plan.json": 2_500_000,
 }
-EXTRA_TEXT_FILES = {".github/workflows/cpu.yml"}
+EXTRA_TEXT_FILES = {".github/workflows/cpu.yml", "CITATION.cff"}
 ALLOWED_DOTFILES = {".gitignore", ".gitattributes", "LICENSE"}
 BLOCKED_PARTS = {"_local", ".git", ".cache", ".tools", ".venv-mcp", ".codex", "__pycache__", "user_assets"}
 PATTERNS = {
