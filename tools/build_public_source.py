@@ -3,6 +3,7 @@ import argparse
 import ast
 import hashlib
 import json
+import io
 import os
 import re
 import stat
@@ -14,12 +15,19 @@ from pathlib import Path, PurePosixPath
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = "glacial_lake_detection/"
 ALLOWED_SUFFIXES = {".py", ".md", ".json", ".csv", ".toml", ".txt", ".png"}
+# Explicit saved-result data exception; no other binary array file is exported.
+RESULTS_NPZ = "results/reproduction/test_masks.npz"
+RESULTS_NPZ_SHA256 = "155fb9e1e4e0a46d2ad27c1794582570daf4944588b80a7fcc4ad66a1d055dca"
+RESULTS_NPZ_BYTES = 1_498_249
+RESULTS_NPZ_ARRAYS = {"ids", "gt", "valid", "GlacioLens-GLB-v1", "TerraMind-frozen", "CROMA-frozen", "U-Net"}
 # Reviewed metadata only; keep the default small-member limit for every other path.
 MEMBER_SIZE_LIMITS = {
+    RESULTS_NPZ: RESULTS_NPZ_BYTES,
     "data/manifests/source_members.csv": 7_000_000,
     "data/manifests/auxiliary_pool.json": 1_500_000,
     "data/manifests/auxiliary_plan.json": 2_500_000,
 }
+EXTRA_TEXT_FILES = {".github/workflows/cpu.yml"}
 ALLOWED_DOTFILES = {".gitignore", ".gitattributes", "LICENSE"}
 BLOCKED_PARTS = {"_local", ".git", ".cache", ".tools", ".venv-mcp", ".codex", "__pycache__", "user_assets"}
 PATTERNS = {
@@ -46,14 +54,43 @@ def safe_path(relative):
             raise ValueError("Linked, offline or reparse member rejected")
     if not p.is_file() or p.resolve().parent != p.parent.resolve():
         raise ValueError("Nonregular export member")
-    if p.suffix not in ALLOWED_SUFFIXES and relative not in ALLOWED_DOTFILES:
+    if p.suffix not in ALLOWED_SUFFIXES and relative not in ALLOWED_DOTFILES and relative != RESULTS_NPZ and relative not in EXTRA_TEXT_FILES:
         raise ValueError("Unexpected file type")
     if p.stat().st_size > MEMBER_SIZE_LIMITS.get(relative, 1_000_000):
         raise ValueError("Unexpected large member")
     return p
 
 
+def check_results_npz(data):
+    """Accept only the reviewed, non-pickled saved-mask payload using the stdlib."""
+    if len(data) != RESULTS_NPZ_BYTES or hashlib.sha256(data).hexdigest() != RESULTS_NPZ_SHA256:
+        raise ValueError("Saved-result payload identity mismatch")
+    with zipfile.ZipFile(io.BytesIO(data)) as archive:
+        members = archive.infolist()
+        if len(members) != len(RESULTS_NPZ_ARRAYS) or {m.filename for m in members} != {n + ".npy" for n in RESULTS_NPZ_ARRAYS}:
+            raise ValueError("Unexpected saved-result array members")
+        if sum(m.file_size for m in members) > 100_000_000:
+            raise ValueError("Unexpected uncompressed saved-result size")
+        for member in members:
+            with archive.open(member) as stream:
+                if stream.read(6) != b"\x93NUMPY":
+                    raise ValueError("Invalid NPY array")
+                version = tuple(stream.read(2))
+                if version not in {(1, 0), (2, 0)}:
+                    raise ValueError("Unexpected NPY version")
+                header_size = int.from_bytes(stream.read(2 if version == (1, 0) else 4), "little")
+                if not 0 < header_size < 16_384:
+                    raise ValueError("Unexpected NPY header size")
+                header = ast.literal_eval(stream.read(header_size).decode("latin1"))
+            expected = {"descr": "<U32", "fortran_order": False, "shape": (1913,)} if member.filename == "ids.npy" else {"descr": "|u1", "fortran_order": False, "shape": (1913, 256, 32)}
+            if header != expected:
+                raise ValueError("Unexpected saved-result dtype or shape")
+
+
 def findings(name, data, terms):
+    if name == RESULTS_NPZ:
+        check_results_npz(data)
+        return []
     if name.endswith(".png"):
         # Only a small raster preview with no textual/EXIF/private ancillary chunks.
         if not data.startswith(b"\x89PNG\r\n\x1a\n"):
@@ -183,9 +220,9 @@ def build(private_terms=None):
                                  "actual_archive_text_scanned": True, "png_preview_metadata_free": True,
                                  "generic_patterns": len(PATTERNS),
                                  "known_private_terms_checked": len(terms), "findings": [],
-                                 "no_raw_datasets_weights_internal_reports_or_notebooks": True,
-                                 "reviewed_dataset_derived_preview_and_metadata_only": True,
-                                 "path_specific_metadata_size_limits": MEMBER_SIZE_LIMITS,
+                                 "no_training_imagery_weights_private_reports_or_notebooks": True,
+                                 "reviewed_dataset_derived_preview_metadata_and_saved_test_masks": True,
+                                 "path_specific_reviewed_data_limits": MEMBER_SIZE_LIMITS,
                                  "runtime_execution_checked_by_exporter": False,
                                  "runtime_qualification_evidence_is_separate": True}}
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")

@@ -3,6 +3,7 @@
   "purpose": "Explicit reviewed source, attributed qualitative preview and sanitized reproduction metadata; no recursive discovery at export time",
   "files": [
     ".gitattributes",
+    ".github/workflows/cpu.yml",
     ".gitignore",
     "LICENSE",
     "MODEL_CARD.md",
@@ -22,6 +23,7 @@
     "data/manifests/train_ids.json",
     "data/manifests/val_ids.json",
     "docs/citation.md",
+    "docs/figures/README.md",
     "docs/figures/glaciolens_qualitative.json",
     "docs/figures/glaciolens_qualitative.png",
     "docs/figures/p56_results.png",
@@ -44,6 +46,13 @@
     "results/metrics.csv",
     "results/metrics.json",
     "results/model_identity.json",
+    "results/reproduction/README.md",
+    "results/reproduction/expected_results.json",
+    "results/reproduction/group_mapping.csv",
+    "results/reproduction/metric_config.json",
+    "results/reproduction/per_tile_counts.csv",
+    "results/reproduction/source_manifest.json",
+    "results/reproduction/test_masks.npz",
     "scripts/evaluate/recount_saved_masks.py",
     "scripts/prepare/check_manifest.py",
     "scripts/train/inspect_recipe.py",
@@ -77,8 +86,13 @@
     "src/glacial_lake/p56_spatial_binding.py",
     "src/glacial_lake/saved_counts.py",
     "src/glacial_lake/uncertainty.py",
+    "tests/test_public_cpu.py",
     "tools/bootstrap_inference.py",
     "tools/build_public_source.py",
+    "tools/fetch_qualitative_inputs.py",
+    "tools/object_boundary_metrics.py",
+    "tools/render_qualitative.py",
+    "tools/reproduce_results.py",
     "tools/verify_data_manifest.py"
   ]
 }

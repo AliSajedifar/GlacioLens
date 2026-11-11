@@ -1,0 +1,848 @@
+{
+  "metrics": {
+    "GlacioLens-GLB-v1": {
+      "counts": {
+        "tp": 4357116,
+        "fp": 827551,
+        "fn": 491295,
+        "tn": 119694406
+      },
+      "matching": {
+        "0.25": {
+          "F1": 0.676693404634581,
+          "fn": 726,
+          "fp": 2176,
+          "gt": 3763,
+          "predicted": 5213,
+          "tp": 3037
+        },
+        "0.5": {
+          "F1": 0.6018270944741533,
+          "fn": 1062,
+          "fp": 2512,
+          "gt": 3763,
+          "predicted": 5213,
+          "tp": 2701
+        }
+      },
+      "boundary": {
+        "F1": 0.7423287948028101,
+        "gt_support": 402100,
+        "matched_gt": 320177,
+        "matched_pred": 317217,
+        "precision": 0.6952381369843799,
+        "pred_support": 456271,
+        "recall": 0.7962621238497886
+      },
+      "size": {
+        "all_visible": {
+          "1-15": {
+            "GT_area": 785,
+            "TP_area": 198,
+            "coverage_ge25": 23,
+            "coverage_ge50": 21,
+            "objects": 112,
+            "omitted": 89
+          },
+          "16-63": {
+            "GT_area": 19747,
+            "TP_area": 9741,
+            "coverage_ge25": 262,
+            "coverage_ge50": 236,
+            "objects": 450,
+            "omitted": 168
+          },
+          "64-255": {
+            "GT_area": 207120,
+            "TP_area": 148609,
+            "coverage_ge25": 1241,
+            "coverage_ge50": 1179,
+            "objects": 1483,
+            "omitted": 197
+          },
+          ">=256": {
+            "GT_area": 4620759,
+            "TP_area": 4198568,
+            "coverage_ge25": 1600,
+            "coverage_ge50": 1544,
+            "objects": 1718,
+            "omitted": 74
+          }
+        },
+        "complete": {
+          "1-15": {
+            "GT_area": 0,
+            "TP_area": 0,
+            "coverage_ge25": 0,
+            "coverage_ge50": 0,
+            "objects": 0,
+            "omitted": 0
+          },
+          "16-63": {
+            "GT_area": 13310,
+            "TP_area": 6265,
+            "coverage_ge25": 160,
+            "coverage_ge50": 143,
+            "objects": 275,
+            "omitted": 103
+          },
+          "64-255": {
+            "GT_area": 150973,
+            "TP_area": 108331,
+            "coverage_ge25": 910,
+            "coverage_ge50": 864,
+            "objects": 1089,
+            "omitted": 148
+          },
+          ">=256": {
+            "GT_area": 938517,
+            "TP_area": 801436,
+            "coverage_ge25": 867,
+            "coverage_ge50": 841,
+            "objects": 942,
+            "omitted": 50
+          }
+        },
+        "incomplete": {
+          "1-15": {
+            "GT_area": 785,
+            "TP_area": 198,
+            "coverage_ge25": 23,
+            "coverage_ge50": 21,
+            "objects": 112,
+            "omitted": 89
+          },
+          "16-63": {
+            "GT_area": 6437,
+            "TP_area": 3476,
+            "coverage_ge25": 102,
+            "coverage_ge50": 93,
+            "objects": 175,
+            "omitted": 65
+          },
+          "64-255": {
+            "GT_area": 56147,
+            "TP_area": 40278,
+            "coverage_ge25": 331,
+            "coverage_ge50": 315,
+            "objects": 394,
+            "omitted": 49
+          },
+          ">=256": {
+            "GT_area": 3682242,
+            "TP_area": 3397132,
+            "coverage_ge25": 733,
+            "coverage_ge50": 703,
+            "objects": 776,
+            "omitted": 24
+          }
+        }
+      },
+      "false_objects": {
+        "count": 1868,
+        "area": 492974
+      },
+      "pixel_scores_pct": {
+        "lake_iou": 76.76436170643849,
+        "two_class_miou": 87.83726284704913
+      }
+    },
+    "TerraMind-frozen": {
+      "counts": {
+        "tp": 3499784,
+        "fp": 832528,
+        "fn": 1348627,
+        "tn": 119689429
+      },
+      "matching": {
+        "0.25": {
+          "F1": 0.5799450908615505,
+          "fn": 1545,
+          "fp": 1668,
+          "gt": 3763,
+          "predicted": 3886,
+          "tp": 2218
+        },
+        "0.5": {
+          "F1": 0.486338083409596,
+          "fn": 1903,
+          "fp": 2026,
+          "gt": 3763,
+          "predicted": 3886,
+          "tp": 1860
+        }
+      },
+      "boundary": {
+        "F1": 0.64222178072365,
+        "gt_support": 402100,
+        "matched_gt": 248978,
+        "matched_pred": 240427,
+        "precision": 0.6670282567381987,
+        "pred_support": 360445,
+        "recall": 0.6191942302909724
+      },
+      "size": {
+        "all_visible": {
+          "1-15": {
+            "GT_area": 785,
+            "TP_area": 75,
+            "coverage_ge25": 7,
+            "coverage_ge50": 7,
+            "objects": 112,
+            "omitted": 104
+          },
+          "16-63": {
+            "GT_area": 19747,
+            "TP_area": 2858,
+            "coverage_ge25": 88,
+            "coverage_ge50": 65,
+            "objects": 450,
+            "omitted": 341
+          },
+          "64-255": {
+            "GT_area": 207120,
+            "TP_area": 93034,
+            "coverage_ge25": 835,
+            "coverage_ge50": 701,
+            "objects": 1483,
+            "omitted": 545
+          },
+          ">=256": {
+            "GT_area": 4620759,
+            "TP_area": 3403817,
+            "coverage_ge25": 1343,
+            "coverage_ge50": 1216,
+            "objects": 1718,
+            "omitted": 240
+          }
+        },
+        "complete": {
+          "1-15": {
+            "GT_area": 0,
+            "TP_area": 0,
+            "coverage_ge25": 0,
+            "coverage_ge50": 0,
+            "objects": 0,
+            "omitted": 0
+          },
+          "16-63": {
+            "GT_area": 13310,
+            "TP_area": 1100,
+            "coverage_ge25": 35,
+            "coverage_ge50": 20,
+            "objects": 275,
+            "omitted": 227
+          },
+          "64-255": {
+            "GT_area": 150973,
+            "TP_area": 66571,
+            "coverage_ge25": 596,
+            "coverage_ge50": 496,
+            "objects": 1089,
+            "omitted": 421
+          },
+          ">=256": {
+            "GT_area": 938517,
+            "TP_area": 652459,
+            "coverage_ge25": 739,
+            "coverage_ge50": 673,
+            "objects": 942,
+            "omitted": 144
+          }
+        },
+        "incomplete": {
+          "1-15": {
+            "GT_area": 785,
+            "TP_area": 75,
+            "coverage_ge25": 7,
+            "coverage_ge50": 7,
+            "objects": 112,
+            "omitted": 104
+          },
+          "16-63": {
+            "GT_area": 6437,
+            "TP_area": 1758,
+            "coverage_ge25": 53,
+            "coverage_ge50": 45,
+            "objects": 175,
+            "omitted": 114
+          },
+          "64-255": {
+            "GT_area": 56147,
+            "TP_area": 26463,
+            "coverage_ge25": 239,
+            "coverage_ge50": 205,
+            "objects": 394,
+            "omitted": 124
+          },
+          ">=256": {
+            "GT_area": 3682242,
+            "TP_area": 2751358,
+            "coverage_ge25": 604,
+            "coverage_ge50": 543,
+            "objects": 776,
+            "omitted": 96
+          }
+        }
+      },
+      "false_objects": {
+        "count": 1088,
+        "area": 572160
+      },
+      "pixel_scores_pct": {
+        "lake_iou": 61.605731024395794,
+        "two_class_miou": 79.90800026727547
+      }
+    },
+    "CROMA-frozen": {
+      "counts": {
+        "tp": 3372229,
+        "fp": 1025901,
+        "fn": 1476182,
+        "tn": 119496056
+      },
+      "matching": {
+        "0.25": {
+          "F1": 0.4968404423380727,
+          "fn": 1876,
+          "fp": 1946,
+          "gt": 3763,
+          "predicted": 3833,
+          "tp": 1887
+        },
+        "0.5": {
+          "F1": 0.40573986308583465,
+          "fn": 2222,
+          "fp": 2292,
+          "gt": 3763,
+          "predicted": 3833,
+          "tp": 1541
+        }
+      },
+      "boundary": {
+        "F1": 0.5441103693682823,
+        "gt_support": 402100,
+        "matched_gt": 212255,
+        "matched_pred": 204230,
+        "precision": 0.5613860515233813,
+        "pred_support": 363796,
+        "recall": 0.5278662024372047
+      },
+      "size": {
+        "all_visible": {
+          "1-15": {
+            "GT_area": 785,
+            "TP_area": 31,
+            "coverage_ge25": 3,
+            "coverage_ge50": 2,
+            "objects": 112,
+            "omitted": 109
+          },
+          "16-63": {
+            "GT_area": 19747,
+            "TP_area": 1660,
+            "coverage_ge25": 49,
+            "coverage_ge50": 38,
+            "objects": 450,
+            "omitted": 392
+          },
+          "64-255": {
+            "GT_area": 207120,
+            "TP_area": 68961,
+            "coverage_ge25": 617,
+            "coverage_ge50": 487,
+            "objects": 1483,
+            "omitted": 754
+          },
+          ">=256": {
+            "GT_area": 4620759,
+            "TP_area": 3301577,
+            "coverage_ge25": 1263,
+            "coverage_ge50": 1112,
+            "objects": 1718,
+            "omitted": 301
+          }
+        },
+        "complete": {
+          "1-15": {
+            "GT_area": 0,
+            "TP_area": 0,
+            "coverage_ge25": 0,
+            "coverage_ge50": 0,
+            "objects": 0,
+            "omitted": 0
+          },
+          "16-63": {
+            "GT_area": 13310,
+            "TP_area": 315,
+            "coverage_ge25": 8,
+            "coverage_ge50": 6,
+            "objects": 275,
+            "omitted": 264
+          },
+          "64-255": {
+            "GT_area": 150973,
+            "TP_area": 45720,
+            "coverage_ge25": 412,
+            "coverage_ge50": 316,
+            "objects": 1089,
+            "omitted": 596
+          },
+          ">=256": {
+            "GT_area": 938517,
+            "TP_area": 588548,
+            "coverage_ge25": 671,
+            "coverage_ge50": 580,
+            "objects": 942,
+            "omitted": 193
+          }
+        },
+        "incomplete": {
+          "1-15": {
+            "GT_area": 785,
+            "TP_area": 31,
+            "coverage_ge25": 3,
+            "coverage_ge50": 2,
+            "objects": 112,
+            "omitted": 109
+          },
+          "16-63": {
+            "GT_area": 6437,
+            "TP_area": 1345,
+            "coverage_ge25": 41,
+            "coverage_ge50": 32,
+            "objects": 175,
+            "omitted": 128
+          },
+          "64-255": {
+            "GT_area": 56147,
+            "TP_area": 23241,
+            "coverage_ge25": 205,
+            "coverage_ge50": 171,
+            "objects": 394,
+            "omitted": 158
+          },
+          ">=256": {
+            "GT_area": 3682242,
+            "TP_area": 2713029,
+            "coverage_ge25": 592,
+            "coverage_ge50": 532,
+            "objects": 776,
+            "omitted": 108
+          }
+        }
+      },
+      "false_objects": {
+        "count": 1302,
+        "area": 773749
+      },
+      "pixel_scores_pct": {
+        "lake_iou": 57.4063652049806,
+        "two_class_miou": 77.67772310757128
+      }
+    },
+    "U-Net": {
+      "counts": {
+        "tp": 3924304,
+        "fp": 1397166,
+        "fn": 924107,
+        "tn": 119124791
+      },
+      "matching": {
+        "0.25": {
+          "F1": 0.5010737294201861,
+          "fn": 1313,
+          "fp": 3566,
+          "gt": 3763,
+          "predicted": 6016,
+          "tp": 2450
+        },
+        "0.5": {
+          "F1": 0.44258104100623785,
+          "fn": 1599,
+          "fp": 3852,
+          "gt": 3763,
+          "predicted": 6016,
+          "tp": 2164
+        }
+      },
+      "boundary": {
+        "F1": 0.6309752373470042,
+        "gt_support": 402100,
+        "matched_gt": 287816,
+        "matched_pred": 279976,
+        "precision": 0.5641356298308254,
+        "pred_support": 496292,
+        "recall": 0.715782143745337
+      },
+      "size": {
+        "all_visible": {
+          "1-15": {
+            "GT_area": 785,
+            "TP_area": 15,
+            "coverage_ge25": 1,
+            "coverage_ge50": 1,
+            "objects": 112,
+            "omitted": 110
+          },
+          "16-63": {
+            "GT_area": 19747,
+            "TP_area": 2964,
+            "coverage_ge25": 84,
+            "coverage_ge50": 65,
+            "objects": 450,
+            "omitted": 348
+          },
+          "64-255": {
+            "GT_area": 207120,
+            "TP_area": 105994,
+            "coverage_ge25": 927,
+            "coverage_ge50": 810,
+            "objects": 1483,
+            "omitted": 473
+          },
+          ">=256": {
+            "GT_area": 4620759,
+            "TP_area": 3815331,
+            "coverage_ge25": 1482,
+            "coverage_ge50": 1402,
+            "objects": 1718,
+            "omitted": 161
+          }
+        },
+        "complete": {
+          "1-15": {
+            "GT_area": 0,
+            "TP_area": 0,
+            "coverage_ge25": 0,
+            "coverage_ge50": 0,
+            "objects": 0,
+            "omitted": 0
+          },
+          "16-63": {
+            "GT_area": 13310,
+            "TP_area": 1624,
+            "coverage_ge25": 47,
+            "coverage_ge50": 34,
+            "objects": 275,
+            "omitted": 220
+          },
+          "64-255": {
+            "GT_area": 150973,
+            "TP_area": 75719,
+            "coverage_ge25": 670,
+            "coverage_ge50": 585,
+            "objects": 1089,
+            "omitted": 367
+          },
+          ">=256": {
+            "GT_area": 938517,
+            "TP_area": 742019,
+            "coverage_ge25": 803,
+            "coverage_ge50": 765,
+            "objects": 942,
+            "omitted": 96
+          }
+        },
+        "incomplete": {
+          "1-15": {
+            "GT_area": 785,
+            "TP_area": 15,
+            "coverage_ge25": 1,
+            "coverage_ge50": 1,
+            "objects": 112,
+            "omitted": 110
+          },
+          "16-63": {
+            "GT_area": 6437,
+            "TP_area": 1340,
+            "coverage_ge25": 37,
+            "coverage_ge50": 31,
+            "objects": 175,
+            "omitted": 128
+          },
+          "64-255": {
+            "GT_area": 56147,
+            "TP_area": 30275,
+            "coverage_ge25": 257,
+            "coverage_ge50": 225,
+            "objects": 394,
+            "omitted": 106
+          },
+          ">=256": {
+            "GT_area": 3682242,
+            "TP_area": 3073312,
+            "coverage_ge25": 679,
+            "coverage_ge50": 637,
+            "objects": 776,
+            "omitted": 65
+          }
+        }
+      },
+      "false_objects": {
+        "count": 2453,
+        "area": 1099965
+      },
+      "pixel_scores_pct": {
+        "lake_iou": 62.8333298908972,
+        "two_class_miou": 80.4609843233084
+      }
+    }
+  },
+  "uncertainty": {
+    "tile": {
+      "units": 1913,
+      "seed": 56043,
+      "replicates": 2000,
+      "models": {
+        "GlacioLens-GLB-v1": {
+          "lake_iou": {
+            "percentile_95_pct": [
+              73.26201027107925,
+              79.97290233989462
+            ],
+            "point_pct": 76.76436170643849
+          },
+          "two_class_miou": {
+            "percentile_95_pct": [
+              86.02812312485013,
+              89.50087183917618
+            ],
+            "point_pct": 87.83726284704913
+          }
+        },
+        "TerraMind-frozen": {
+          "lake_iou": {
+            "percentile_95_pct": [
+              56.99422392405088,
+              66.36190556240147
+            ],
+            "point_pct": 61.605731024395794
+          },
+          "two_class_miou": {
+            "percentile_95_pct": [
+              77.52247679885946,
+              82.39962098536961
+            ],
+            "point_pct": 79.90800026727547
+          }
+        },
+        "CROMA-frozen": {
+          "lake_iou": {
+            "percentile_95_pct": [
+              52.884892270580664,
+              61.753192368348074
+            ],
+            "point_pct": 57.4063652049806
+          },
+          "two_class_miou": {
+            "percentile_95_pct": [
+              75.29711458179604,
+              79.90969695162342
+            ],
+            "point_pct": 77.67772310757128
+          }
+        },
+        "U-Net": {
+          "lake_iou": {
+            "percentile_95_pct": [
+              58.73717759345898,
+              66.81706638137399
+            ],
+            "point_pct": 62.8333298908972
+          },
+          "two_class_miou": {
+            "percentile_95_pct": [
+              78.28406112231558,
+              82.56581918323843
+            ],
+            "point_pct": 80.4609843233084
+          }
+        }
+      },
+      "paired_candidate_minus_reference": {
+        "TerraMind-frozen": {
+          "lake_iou": {
+            "percentile_95_pp": [
+              11.056924403542691,
+              19.3237037210844
+            ],
+            "point_pp": 15.158630682042698,
+            "positive_replicate_fraction": 1.0
+          },
+          "two_class_miou": {
+            "percentile_95_pp": [
+              5.774746715980148,
+              10.15253129811197
+            ],
+            "point_pp": 7.929262579773663,
+            "positive_replicate_fraction": 1.0
+          }
+        },
+        "CROMA-frozen": {
+          "lake_iou": {
+            "percentile_95_pp": [
+              15.907040346993664,
+              22.978073548660912
+            ],
+            "point_pp": 19.35799650145789,
+            "positive_replicate_fraction": 1.0
+          },
+          "two_class_miou": {
+            "percentile_95_pp": [
+              8.347711413437604,
+              12.054748902980355
+            ],
+            "point_pp": 10.15953973947785,
+            "positive_replicate_fraction": 1.0
+          }
+        },
+        "U-Net": {
+          "lake_iou": {
+            "percentile_95_pp": [
+              10.628344639634033,
+              17.190848494855175
+            ],
+            "point_pp": 13.931031815541296,
+            "positive_replicate_fraction": 1.0
+          },
+          "two_class_miou": {
+            "percentile_95_pp": [
+              5.619919249149399,
+              9.124167099045202
+            ],
+            "point_pp": 7.376278523740737,
+            "positive_replicate_fraction": 1.0
+          }
+        }
+      }
+    },
+    "filename_source_group": {
+      "units": 1201,
+      "seed": 56043,
+      "replicates": 2000,
+      "models": {
+        "GlacioLens-GLB-v1": {
+          "lake_iou": {
+            "percentile_95_pct": [
+              72.91041088525974,
+              80.07224849846489
+            ],
+            "point_pct": 76.76436170643849
+          },
+          "two_class_miou": {
+            "percentile_95_pct": [
+              85.8514229988793,
+              89.55886064355403
+            ],
+            "point_pct": 87.83726284704913
+          }
+        },
+        "TerraMind-frozen": {
+          "lake_iou": {
+            "percentile_95_pct": [
+              56.805238334907884,
+              66.47636164260888
+            ],
+            "point_pct": 61.605731024395794
+          },
+          "two_class_miou": {
+            "percentile_95_pct": [
+              77.40965466306493,
+              82.42378660840072
+            ],
+            "point_pct": 79.90800026727547
+          }
+        },
+        "CROMA-frozen": {
+          "lake_iou": {
+            "percentile_95_pct": [
+              52.655270577840305,
+              61.988142121838806
+            ],
+            "point_pct": 57.4063652049806
+          },
+          "two_class_miou": {
+            "percentile_95_pct": [
+              75.20449314590023,
+              80.02979744709924
+            ],
+            "point_pct": 77.67772310757128
+          }
+        },
+        "U-Net": {
+          "lake_iou": {
+            "percentile_95_pct": [
+              58.5928356597181,
+              66.77986039580242
+            ],
+            "point_pct": 62.8333298908972
+          },
+          "two_class_miou": {
+            "percentile_95_pct": [
+              78.23610844766641,
+              82.52556060805479
+            ],
+            "point_pct": 80.4609843233084
+          }
+        }
+      },
+      "paired_candidate_minus_reference": {
+        "TerraMind-frozen": {
+          "lake_iou": {
+            "percentile_95_pp": [
+              11.111631881155462,
+              19.622307187307378
+            ],
+            "point_pp": 15.158630682042698,
+            "positive_replicate_fraction": 1.0
+          },
+          "two_class_miou": {
+            "percentile_95_pp": [
+              5.791669580243708,
+              10.2476161643306
+            ],
+            "point_pp": 7.929262579773663,
+            "positive_replicate_fraction": 1.0
+          }
+        },
+        "CROMA-frozen": {
+          "lake_iou": {
+            "percentile_95_pp": [
+              15.68951339185083,
+              23.35286709179636
+            ],
+            "point_pp": 19.35799650145789,
+            "positive_replicate_fraction": 1.0
+          },
+          "two_class_miou": {
+            "percentile_95_pp": [
+              8.217938838937611,
+              12.281384735593473
+            ],
+            "point_pp": 10.15953973947785,
+            "positive_replicate_fraction": 1.0
+          }
+        },
+        "U-Net": {
+          "lake_iou": {
+            "percentile_95_pp": [
+              10.451024717214697,
+              17.22050972479541
+            ],
+            "point_pp": 13.931031815541296,
+            "positive_replicate_fraction": 1.0
+          },
+          "two_class_miou": {
+            "percentile_95_pp": [
+              5.546019388644866,
+              9.14312661799337
+            ],
+            "point_pp": 7.376278523740737,
+            "positive_replicate_fraction": 1.0
+          }
+        }
+      }
+    }
+  }
+}

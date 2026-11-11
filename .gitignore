@@ -19,3 +19,6 @@ __pycache__/
 /build/
 .pytest_cache/
 .venv/
+/artifacts/
+/example_data/
+/example_outputs/

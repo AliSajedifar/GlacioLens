@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "release": "GlacioLens-GLB-v1",
+  "source_commit": "1bb1b6eb192bf491b2a9b09aa2c56c9a4efe6204",
+  "checkpoint_sha256": "19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230",
+  "source_evidence_sha256": "f1ec9ad2c2f371c41219f30bf35b80024d3f5b1bbe4e9430e5dca151ac1e8340",
+  "ordered_id_logical_digest": {
+    "sha256": "f7cc1435308ad1eb0a9cad86208189b62a7f4263893017995b62e2ec7d95ba4c",
+    "serialization": "json.dumps(ids,sort_keys=True,separators=(comma,colon),allow_nan=False), default ensure_ascii=True, UTF8, no trailing newline"
+  },
+  "sources": {
+    "candidate": {
+      "bytes": 539814,
+      "sha256": "79ec49417ce6b01fd2c8ad0e3f3ef77c1d2274c4e60ec001a52fec85d2e26026"
+    },
+    "references": {
+      "bytes": 530758,
+      "sha256": "38333f68626cab26ef57f5f5485bc77326008acbb9c0641ae0db6f2525eaada3"
+    },
+    "target_support_unet": {
+      "bytes": 2184441,
+      "sha256": "3889733430c3e4707207e6d296d295a13e937cdfe440d3954a49126d91e03451"
+    }
+  },
+  "source_members": {
+    "candidate": "TEST_ids + TEST_P56_SELECTED",
+    "references": "ids + TERRAMIND_FROZEN_RELEASED + CROMA_FROZEN_RELEASED",
+    "target_support_unet": "TEST_ids + TEST_gt + TEST_valid + TEST_UNET"
+  },
+  "metric_implementation_sources": {
+    "component_diagnostics_module": "150ae31c2327db503499031519fd88bc9a06ab4347df19c8e36bb3fed5474421",
+    "visible_components_module": "44a666b761d275a2f961f1807fcab1db9779fdf6ff4fe2b7ee4c99c06600e292",
+    "pooled_aggregate_module": "364bfabddf2ddd705df846d6800090f8694b11f7bbdf3d64f4556a6c8bcf55e4",
+    "predicted_structure_module": "768fb2155c606ae70aa03b39d94689089717b767908da1a921bf2a219cf5098b"
+  },
+  "integrity_notes": "Source archive names identify historical scientific provenance only; no private transport locations or credentials are required.",
+  "attribution": {
+    "dataset": "Glacial-Lake-Bench",
+    "authors": [
+      "Saurabh Kaushik",
+      "Beth Tellman",
+      "Ian Howat",
+      "Umesh Haritashya"
+    ],
+    "paper": "https://doi.org/10.5194/essd-2026-474",
+    "data": "https://zenodo.org/records/17917359",
+    "data_license": "CC-BY-4.0",
+    "data_license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "adaptation": "Selected TEST labels/support packed into binary masks; generated predictions and derived counts bundled for evaluation",
+    "prediction_attribution": "GlacioLens and named released-reference systems; see project third-party notices",
+    "code_license": "Apache-2.0"
+  },
+  "distributed_files": {
+    "expected_results.json": {
+      "bytes": 21814,
+      "sha256": "4188d208cfbea75ef5200485f660bd99479116b1f205c3a65e19dc1422b91808"
+    },
+    "group_mapping.csv": {
+      "bytes": 131564,
+      "sha256": "3138b7c8d3577a6fe31e312508e85b2faf6f6677bf4853b8768f72aa67b5bd17"
+    },
+    "metric_config.json": {
+      "bytes": 3472,
+      "sha256": "3f9168acc25f694703a68728928f35337fdc07024b8c16d82bbe461a825648f4"
+    },
+    "per_tile_counts.csv": {
+      "bytes": 477136,
+      "sha256": "c5a1f9322ab221baa92a7f4cd2ed61821dbc322f9925b259c28fda033555f35b"
+    },
+    "test_masks.npz": {
+      "bytes": 1498249,
+      "sha256": "155fb9e1e4e0a46d2ad27c1794582570daf4944588b80a7fcc4ad66a1d055dca"
+    }
+  },
+  "tool_files": {
+    "tools/object_boundary_metrics.py": {
+      "bytes": 4828,
+      "sha256": "b6ed5fc86d6d9d3c050ca873436b9808c1025a997c3bcf48339bb74a72a39295"
+    },
+    "tools/reproduce_results.py": {
+      "bytes": 10499,
+      "sha256": "26c7fe9f7d62ff5ba99ba90a4e2ed93e1345c9e33ab4a3288c336a7d53762265"
+    }
+  }
+}

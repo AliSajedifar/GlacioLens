@@ -65,6 +65,20 @@ These results demonstrate improved small-lake coverage, object matching and boun
 - **Boundary F1:** boundaries are foreground pixels removed by a 3×3 erosion; matching uses a two-pixel Chebyshev tolerance and safe valid support obtained by a 7×7 erosion.
 - **Entirely false objects:** predicted eight-connected components with zero overlap with any ground-truth lake. Their count and area are separate from unmatched-object FP counts used in object F1 and from total false-positive pixels.
 
+## Reproduce the measured comparisons
+
+The [saved-results package](../results/reproduction/README.md) supplies the actual four-model TEST predictions, reference labels, valid support, all 7,652 per-tile confusion-count rows, exact 1,201-group mapping, metric definitions and bootstrap settings. It computes the object/boundary statistics from masks and reuses the existing public bootstrap implementation unchanged.
+
+```sh
+python -m pip install -e .
+python -m pip install numpy==2.3.5 scipy==1.17.0
+python tools/reproduce_results.py --output artifacts/reproduced_results
+```
+
+The original CPU reconstruction matched 498 retained numeric values with maximum absolute residual 0.0, including both 2,000-replicate bootstrap regimes. It used no model weights, satellite images or GPU. The command also checks its outputs against the original retained verification target; those expected values are not used to compute the metrics.
+
+This reconstructs the four **measured TEST** rows and their intervals. The paper's fifteen selected-training scores remain externally reported scalars. Validation/GLBC endpoints, reference training runs and a portable full training launcher are separate scopes.
+
 ## Existing uncertainty estimates
 
 The retained paired analysis resampled 1,201 filename-derived source groups 2,000 times. Its 95% percentile intervals for the **GlacioLens minus released reference** difference in two-class mIoU are:
@@ -91,3 +105,7 @@ The retained paired intervals against the internal B, C0, N and P53 systems incl
 ## Scope and tradeoffs
 
 The fixed GLB population includes retained TRAIN/VAL/TEST aliases and shared acquisition groups. GLBC exposure grouping contains 381 TRAIN-overlap observations, 75 heldout-only overlap observations and 649 with no positive-area overlap; the latter is not proof of geographic independence. Fully valid native-tile evidence does not qualify arbitrary nodata imagery, missing DEM, other input domains or production deployment. See the [model card](../MODEL_CARD.md) for input and software-qualification scope.
+
+## Error analysis
+
+The front-page gallery deliberately illustrates successful cases. A retained difficult case, `NZ_S2B_59GMM_20200814_0_L2A_150`, has lake IoU 30.02% with TP 1,725, FP 6 and FN 4,016; most of its error is missed lake extent. Its prediction and target are included in the public saved-results package. The [earlier evaluation gallery](https://github.com/AliSajedifar/GlacioLens/blob/1bb1b6eb192bf491b2a9b09aa2c56c9a4efe6204/docs/figures/glaciolens_qualitative.png) and [immutable case provenance](https://github.com/AliSajedifar/GlacioLens/blob/1bb1b6eb192bf491b2a9b09aa2c56c9a4efe6204/docs/figures/glaciolens_qualitative.json) preserve its visual evidence. Example selection does not change the complete-cohort metrics or the false-detection/extent tradeoffs above.

@@ -22,3 +22,6 @@ LICENSE -text !eol
 /dist export-ignore
 /user_assets export-ignore
 .env* export-ignore
+
+# Preserve reviewed saved-result payload bytes and their distributed-file hashes.
+results/reproduction/** -text !eol

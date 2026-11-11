@@ -2,15 +2,24 @@
 
 **Multimodal deep learning for glacial lake segmentation**
 
-GlacioLens maps glacial lakes in satellite imagery, combining a fine-tuned **TerraMind-Large encoder**, **UPerNet decoder** and a custom spatial refinement pathway. It brings together optical imagery, stored SAR channels and physical elevation to recover small lakes and trace complex shorelines on the original image grid.
+GlacioLens maps glacial lakes in satellite imagery, combining a fine-tuned **TerraMind-Large encoder**, **UPerNet decoder** and a custom spatial refinement pathway. It brings together optical imagery, stored SAR channels and physical elevation in a system designed to improve small-lake recovery and shoreline delineation on the original image grid.
+
+**87.84% two-class mIoU · 76.76% lake IoU · 1,913 recorded GLB TEST tiles**
 
 [Results](docs/results.md) · [Model weights](https://huggingface.co/MaxiWb/glaciolens-glb-v1) · [Run inference](docs/inference.md) · [Method](docs/method.md)
 
-![Selected GlacioLens results: clear lake, small lake and missed lake extent, with satellite RGB, labels, predictions and error maps](docs/figures/glaciolens_qualitative.png)
+![Selected successful GlacioLens examples: a large lake, a clear lake and a small lake, with satellite RGB, labels, predictions and error maps](docs/figures/glaciolens_qualitative.png)
 
-**Qualitative segmentation results.** Three illustrative GLB TEST selections, not a statistical sample: `NZ_S2B_59GLM_20200814_1_L2A_1`, `AK_S2A_9VVC_20200909_0_L2A_231` and `NZ_S2B_59GMM_20200814_0_L2A_150`. Original saved GlacioLens-GLB-v1 predictions; native 256 × 256 context in every panel. RGB uses Red/Green/Blue (stored slots 2/1/0) with a per-band 2nd–98th percentile display stretch. The small-lake row shows the same boxed **64 × 64 crop** enlarged in all four panels. [Exact case provenance and counts](docs/figures/glaciolens_qualitative.json).
+**Selected successful examples:** a large lake, a clear lake and a small lake, using original released-model predictions. These are illustrative selections, not a statistical sample. Imagery and labels: [Glacial-Lake-Bench](https://zenodo.org/records/17917359), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-Imagery and reference labels: [Glacial-Lake-Bench, Kaushik et al. (2026), Zenodo 17917359](https://zenodo.org/records/17917359), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). RGB rendering, crop enlargement, predictions and error overlays by GlacioLens; [dataset and provider attribution](THIRD_PARTY_NOTICES.md#glb-and-glbc-data-attribution).
+<details>
+<summary>Case IDs, rendering and attribution</summary>
+
+From top to bottom: `GL_S2A_22WDT_20200717_0_L2A_146`, `NZ_S2B_59GLM_20200814_1_L2A_1`, and `AK_S2A_9VVC_20200909_0_L2A_231`. Each row retains native 256 × 256 context, with the same small-lake crop across all four columns. RGB uses stored Red/Green/Blue slots 2/1/0 and a per-band 2nd–98th percentile display stretch. Labels and predictions are not altered or resampled for scoring.
+
+[Exact provenance, crop coordinates and counts](docs/figures/glaciolens_qualitative.json) · [Portable rendering script](tools/render_qualitative.py) · [Dataset and provider attribution](THIRD_PARTY_NOTICES.md#glb-and-glbc-data-attribution). The [results guide](docs/results.md#error-analysis) retains access to the difficult missed-extent case and measured tradeoffs.
+
+</details>
 
 ## What I built
 
@@ -53,6 +62,7 @@ git clone https://github.com/AliSajedifar/GlacioLens.git
 cd GlacioLens
 ```
 
+- **Rebuild the measured comparison tables:** the [CPU results package](results/reproduction/README.md) includes saved masks, per-tile counts, group IDs and exact metric/bootstrap settings. It reconstructs the four measured TEST rows without weights or a GPU.
 - **Run the tools on CPU:** the [quickstart](docs/quickstart.md) installs the package and evaluates a small synthetic mask example without weights or satellite data.
 - **Predict real imagery:** download the [public model weights](https://huggingface.co/MaxiWb/glaciolens-glb-v1) using the [pinned instructions](docs/inference.md#checkpoint-download), then follow the [inference guide](docs/inference.md) to produce georeferenced masks from your local inputs.
 - **Understand or reproduce the method:** verify the [exact split and sampling metadata](data/manifests/README.md), then read the [architecture](docs/method.md), [recorded training recipe](docs/reproduction.md) and [model card](MODEL_CARD.md).

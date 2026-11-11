@@ -2,6 +2,8 @@
 
 The [quickstart](quickstart.md) runs CPU metadata inspection and saved-mask evaluation. This page explains the GlacioLens-GLB-v1 input contract and completed P56 scientific recipe. For prediction with an existing checkpoint, follow the canonical [native-inference route](inference.md); its inputs do not require training labels or sidecar indexes. It is an implementation guide, not a claim that a portable full training launcher ships here.
 
+For reproducible evaluation without training or model execution, the [CPU results package](../results/reproduction/README.md) reconstructs the four measured TEST comparison rows from saved predictions and reference masks, including object/boundary metrics and intervals. This is separate from reproducing the training procedure below.
+
 ## Assets and availability
 
 | Asset | Required for | What this source release supplies |

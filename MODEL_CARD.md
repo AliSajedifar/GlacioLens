@@ -49,7 +49,7 @@ The complete-system comparison does not isolate an architecture or backbone gain
 
 ## Availability and software qualification
 
-The source provides [CPU onboarding](docs/quickstart.md), research components, the recorded recipe and a [target-free local-input CLI/API](docs/inference.md). It includes no datasets, weights or portable full training launcher.
+The source provides [CPU onboarding](docs/quickstart.md), research components, the recorded recipe and a [target-free local-input CLI/API](docs/inference.md). It includes a compact [saved TEST results package](results/reproduction/README.md) with binary reference masks and predictions for CPU metric reproduction. Raw training imagery, model weights and a portable full training launcher are not bundled in the source tree; weights are hosted separately as linked above.
 
 The original P61 installed CLI on NVIDIA L4 used TEST indices **0/1/1912**, batches **[2,1]**, three intentional views and two calls. All three masks matched the retained P56 masks exactly, with unchanged selected state and original GeoTIFF geometry. This bounded interface check is separate from the full P56 scientific evaluation. P63 setup/preflight/Git maintenance was CPU-verified; the revised complete package and current documentation snapshot have not been newly executed on L4. Historical runtime hashes remain separately scoped in [source provenance](release/source_provenance.json).
 
@@ -57,6 +57,8 @@ Owner-controlled source is published at [AliSajedifar/GlacioLens](https://github
 
 ## Qualitative examples and exact metadata
 
-See the [three-case saved-prediction figure](docs/figures/glaciolens_qualitative.png) and its [case provenance](docs/figures/glaciolens_qualitative.json). These are illustrative selections with a retained difficult example, not a statistical sample. Dataset imagery/labels and derived metadata retain [CC BY 4.0 attribution](THIRD_PARTY_NOTICES.md#glb-and-glbc-data-attribution).
+See the [three-case saved-prediction figure](docs/figures/glaciolens_qualitative.png) and its [case provenance](docs/figures/glaciolens_qualitative.json). These are illustrative selected successes, not a statistical sample. The [error-analysis section](docs/results.md#error-analysis) retains access to the difficult case and complete-cohort tradeoffs. Dataset imagery/labels and derived metadata retain [CC BY 4.0 attribution](THIRD_PARTY_NOTICES.md#glb-and-glbc-data-attribution).
 
 The [CPU metadata verifier](data/manifests/README.md) checks exact ordered TRAIN/VAL/TEST/GLBC IDs, available raw-source hashes, alias/restoration annotations and the reconstructed materialized supplementary pool/plan. Original inputs, DEM preparation and a qualified portable end-to-end training harness remain separate requirements.
+
+The [CPU result reconstruction](results/reproduction/README.md) computes the four measured TEST comparisons from saved masks, including object/boundary metrics and both existing bootstrap regimes. It matched 498 retained numeric values exactly in the recorded analysis environment. A small public [CPU workflow](.github/workflows/cpu.yml) checks metadata, known-count evaluation, invalid inputs, geometry fixtures and installed package resources. These checks do not extend the model's L4 qualification.

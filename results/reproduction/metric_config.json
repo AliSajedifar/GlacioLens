@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "cohort": "Recorded GLB TEST1913",
+  "images": 1913,
+  "model_order": [
+    "GlacioLens-GLB-v1",
+    "TerraMind-frozen",
+    "CROMA-frozen",
+    "U-Net"
+  ],
+  "model_regimes": {
+    "GlacioLens-GLB-v1": "Selected final complete system; additional physical DEM and custom training",
+    "TerraMind-frozen": "Released frozen encoder with trained GLB decoder",
+    "CROMA-frozen": "Released frozen encoder with trained GLB decoder",
+    "U-Net": "Released trained-from-scratch U-Net"
+  },
+  "count_order": [
+    "tp",
+    "fp",
+    "fn",
+    "tn"
+  ],
+  "mask": {
+    "shape": [
+      1913,
+      256,
+      32
+    ],
+    "dtype": "uint8",
+    "logical_shape": [
+      1913,
+      256,
+      256
+    ],
+    "packbits_axis": -1,
+    "bitorder": "big",
+    "support": "Apply original valid support to predictions and target"
+  },
+  "pooled_metrics": "Pool int64 confusion counts before ratios; class mIoU is mean of lake/background IoU; never average tile IoUs",
+  "components": {
+    "connectivity": 8,
+    "matching_thresholds": [
+      0.25,
+      0.5
+    ],
+    "matching": "Maximum cardinality then summed IoU; linear_sum_assignment maximize; eligible weight=min(ngt,npred)+1+IoU",
+    "complete": "No image-edge contact and no 8-neighbour invalid-support contact",
+    "tiny_gt_pixels": [
+      16,
+      63
+    ],
+    "small_gt_pixels": [
+      64,
+      255
+    ],
+    "coverage": "Predicted intersection / GT-component area; not IoU matching",
+    "false_objects": "Predicted 8-connected component with zero GT overlap; report count and area separately"
+  },
+  "boundary": {
+    "erosion_kernel": [
+      3,
+      3
+    ],
+    "safe_support_erosion_kernel": [
+      7,
+      7
+    ],
+    "erosion_border_value": 0,
+    "matching_dilation_kernel": [
+      5,
+      5
+    ],
+    "distance": "Chebyshev tolerance2; safe support applied before dilation",
+    "aggregation": "Pool matched_pred, matched_gt, pred_support, gt_support, then precision/recall/F1"
+  },
+  "empty_conventions": {
+    "pooled": "No undefined class unions in this cohort",
+    "object_f1": "null if pooled 2TP+FP+FN is zero",
+    "boundary": "null if either pooled support is absent; zero if both supports exist but no matches",
+    "size_groups": "Empty groups carry zero counts; no invented rate"
+  },
+  "bootstrap": {
+    "seed": 56043,
+    "replicates": 2000,
+    "tile_units": 1913,
+    "group_units": 1201,
+    "rng": "NumPy default_rng / PCG64",
+    "resampling": "Equal-unit multinomial multiplicities, size=n_units, common draw across models",
+    "batch_replicates": 100,
+    "group_definition": "id.rsplit('_',1)[0]",
+    "group_order": "np.unique sorted Unicode strings; explicit group_index in group_mapping.csv",
+    "regime_initialization": "Reset default_rng(56043) independently for tile and filename_source_group",
+    "quantiles": [
+      0.025,
+      0.975
+    ],
+    "quantile_method": "linear",
+    "numeric_types": "int64 confusion sums and multiplicities; float64 metric ratios",
+    "confidence_scope": "Conditional composition of fixed retained predictions; not training-seed variance or independent geography"
+  },
+  "public_bootstrap_source": "src/glacial_lake/uncertainty.py",
+  "public_bootstrap_sha256": "8e578f8a2d82e5d6529a1a00c7c88c53e05863b1e271ff984c7ce22f9b1fea96",
+  "paper_scalar_rows": "Published selected-fine-tuned Cryo-Bench TableVIII-B rows remain external cited values; no masks or paired CIs are fabricated for those rows"
+}
