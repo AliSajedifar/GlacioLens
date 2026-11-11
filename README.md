@@ -62,7 +62,7 @@ cd GlacioLens
 
 ### Reproduce the results on CPU
 
-Rebuild the four measured TEST comparisons and their uncertainty intervals from the published masks. No checkpoint, satellite download or GPU is needed. From the repository root in a separate CPU Python environment:
+Rebuild the four measured TEST comparisons and their uncertainty intervals from the published masks. No checkpoint, satellite download or GPU is needed. **Prerequisite: Python 3.11+.** Use a separate CPU Python environment and run these commands from the repository root:
 
 ```sh
 python -m pip install -e .
