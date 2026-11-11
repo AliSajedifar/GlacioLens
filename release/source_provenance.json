@@ -285,7 +285,12 @@
     "maintainer_login": "AliSajedifar",
     "source_license": "Apache-2.0",
     "selected_checkpoint_license": "Apache-2.0",
-    "public_weights_available": false,
-    "scope": "Publication metadata only; historical runtime/source hashes and scientific qualification unchanged."
+    "public_weights_available": true,
+    "scope": "Publication metadata only; historical runtime/source hashes and scientific qualification unchanged.",
+    "model_repository": "https://huggingface.co/MaxiWb/glaciolens-glb-v1",
+    "checkpoint_revision": "bc65beeff3604d51e2242cb51536d5b51ff702f3",
+    "checkpoint_sha256": "19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230",
+    "checkpoint_bytes": 1280672641,
+    "qualification_scope": "Publication is not numerical requalification; earlier phase availability fields describe their historical snapshots."
   }
 }

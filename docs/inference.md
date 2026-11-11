@@ -4,7 +4,7 @@
 
 This is the canonical prediction route for users who already have authorized assets:
 
-1. Verify the [exact local checkpoint](#checkpoint-identity) and prepare fully valid native inputs. Weights are not publicly hosted.
+1. Verify the [exact local checkpoint](#checkpoint-identity) and prepare fully valid native inputs. [Download the public selected weights](#checkpoint-download) under Apache-2.0.
 2. Extract the obtained source archive and run the [recorded L4 setup](#colab-installation).
 3. Create the [ordered, target-free manifest](#input-manifest) using your local image, DEM and usability files.
 4. [Run one CLI job](#run-prediction) into a new output directory. The API is an alternative integration route.
@@ -20,7 +20,19 @@ P63 maintenance preserves Git-delivered bytes and enforces strict dependency che
 
 The supported contract is a fully valid native GLB tile: 11 bands, 256×256, the recorded stored-value domain, meaningful CRS/affine metadata, and an aligned physical DEM in metres. Other sensors, image sizes, missing DEM/nodata, arbitrary geography and devices are outside the qualification. The runtime rejects incomplete support. It requires NVIDIA L4 and the exact scientific versions below.
 
-The public source contains no weights or data. Private access to the exact checkpoint and its received bytes was verified during the original P61 qualification; P63 did not re-access weights. Obtain authorized local assets separately; no public weight URL or package-index release is claimed. The maintainer has separately approved Apache-2.0 for the selected P56 weights. Images, labels and DEM products retain their own terms. See [asset notices and delivery status](release_status.md#licensing-scope).
+The public source contains no weights or data. Private access to the exact checkpoint and its received bytes was verified during the original P61 qualification; P63 did not re-access weights. The original selected checkpoint is now [public on Hugging Face](https://huggingface.co/MaxiWb/glaciolens-glb-v1). Obtain imagery and prepared DEM/support separately; no package-index release is claimed. The maintainer has separately approved Apache-2.0 for the selected P56 weights. Images, labels and DEM products retain their own terms. See [asset notices and delivery status](release_status.md#licensing-scope).
+
+## Checkpoint download
+
+The public model is [GlacioLens-GLB-v1](https://huggingface.co/MaxiWb/glaciolens-glb-v1), with the original checkpoint at immutable revision `bc65beeff3604d51e2242cb51536d5b51ff702f3`. The anonymous public file metadata matches **1,280,672,641 bytes** and the SHA256 below; delivery did not deserialize or modify tensors.
+
+With the official [Hugging Face CLI](https://huggingface.co/docs/huggingface_hub/guides/cli) installed in a separate delivery environment:
+
+```sh
+hf download MaxiWb/glaciolens-glb-v1 glaciolens-glb-v1.ckpt --revision bc65beeff3604d51e2242cb51536d5b51ff702f3 --local-dir user_assets
+```
+
+Verify the downloaded SHA256 before prediction. Use `user_assets/glaciolens-glb-v1.ckpt` as the `--checkpoint` argument, or upload the unchanged file as `EMA12.ckpt` when following the notebook example below. The public filename differs; the bytes and scientific identity are identical. No sign-in is required for public download. [License and notices](https://huggingface.co/MaxiWb/glaciolens-glb-v1/tree/bc65beeff3604d51e2242cb51536d5b51ff702f3).
 
 ## Checkpoint identity
 

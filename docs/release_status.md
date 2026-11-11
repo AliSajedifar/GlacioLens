@@ -1,13 +1,13 @@
 # GlacioLens release status
 
-**Source is published at [AliSajedifar/GlacioLens](https://github.com/AliSajedifar/GlacioLens). Public weight delivery is pending.** GlacioLens-GLB-v1 is the accepted trained-model label; the software distribution remains `glacial-lake 0.1.0`. The [model card](../MODEL_CARD.md#intended-use-and-identity) maps those names to the unchanged P56 checkpoint and runtime identities.
+**Source is published at [AliSajedifar/GlacioLens](https://github.com/AliSajedifar/GlacioLens). [Selected P56 weights are public on Hugging Face](https://huggingface.co/MaxiWb/glaciolens-glb-v1) under Apache-2.0.** GlacioLens-GLB-v1 is the accepted trained-model label; the software distribution remains `glacial-lake 0.1.0`. The [model card](../MODEL_CARD.md#intended-use-and-identity) maps those names to the unchanged P56 checkpoint and runtime identities.
 
 ## Available capabilities
 
 | Goal | Current capability |
 |---|---|
 | Try the package without private assets | [CPU quickstart](quickstart.md): normal local install, metadata/routing inspection and deterministic synthetic saved-mask evaluation. |
-| Run selected-model prediction | [Native-inference CLI/API](inference.md) with an authorized exact local checkpoint and fully valid native inputs on the recorded L4 stack. Weights are not publicly hosted. |
+| Run selected-model prediction | [Native-inference CLI/API](inference.md) with an authorized exact local checkpoint and fully valid native inputs on the recorded L4 stack. [Verified original weights](inference.md#checkpoint-download) are public on Hugging Face under Apache-2.0. |
 | Study or reproduce the method | Computational components, exact normalization, aggregate results and a [recorded recipe](reproduction.md); no portable full preparation/training launcher. |
 | Obtain the source | [Public GitHub repository](https://github.com/AliSajedifar/GlacioLens), maintained by Ali Sajedifar, under Apache-2.0. The 64-file export allowlist preserves the source-only scope. |
 
@@ -21,10 +21,10 @@ The repository maintainer is **Ali Sajedifar** ([AliSajedifar](https://github.co
 |---|---|
 | Source publication | [AliSajedifar/GlacioLens](https://github.com/AliSajedifar/GlacioLens), public; use the exact commit associated with your checkout. |
 | Selected checkpoint terms | Apache-2.0, explicitly approved for P56 EMA12 / step 11,484. |
-| Model delivery | Hugging Face account, immutable checkpoint revision and public delivery are not yet verified. No public weight download is claimed. |
+| Model delivery | [MaxiWb/glaciolens-glb-v1](https://huggingface.co/MaxiWb/glaciolens-glb-v1), public and ungated. Original checkpoint verified at revision `bc65beeff3604d51e2242cb51536d5b51ff702f3` by byte size and comparable SHA256 metadata. |
 | Citation | Maintainer and repository are known; no DOI, affiliation, coauthors or legal copyright history is invented. |
 
-Public checkpoint availability requires verification of its original size/SHA256 and live source/model links. Publication does not extend numerical qualification or establish training portability.
+Public checkpoint size/SHA256 and the live source/model links have been verified. Publication does not extend numerical qualification or establish training portability.
 
 ## Source payload
 
@@ -39,7 +39,7 @@ To regenerate the candidate, run `python tools/build_public_source.py` from the 
 | Owner-controlled code, docs and generated aggregate figure | Apache-2.0; [LICENSE](../LICENSE) is the unmodified official text. Package metadata declares that scope and includes the license and third-party notices in wheels. The maintainer is Ali Sajedifar; no additional copyright history is claimed. |
 | Copied/adapted upstream implementations | No redistributed external implementation was identified in the reviewed public source. Project modules adapt interfaces/method recipes and import upstream implementations. Exact pinned exceptions, retained project-reference acknowledgments and comparison limits are in [third-party notices](../THIRD_PARTY_NOTICES.md) and [file provenance](../release/license_provenance.json). |
 | Original TerraMind initializer | The [official TerraMind-1.0-large model card](https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-large) declares Apache-2.0. This is a verified upstream model declaration, separate from the code repository and from the selected trained P56 state. No initializer is bundled. |
-| Selected P56 weights | EMA12 /step11,484; file SHA256 `19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230`. P61 verified current authorized private access and the received exact file bytes. The maintainer separately approved Apache-2.0 for this selected checkpoint. Public hosting and accessible delivery have not yet been verified. No conclusion is made that training automatically transfers a dataset's license to all weights. |
+| Selected P56 weights | EMA12 /step11,484; file SHA256 `19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230`. P61 verified current authorized private access and the received exact file bytes. The maintainer separately approved Apache-2.0 for this selected checkpoint. The unchanged original file is [publicly hosted](https://huggingface.co/MaxiWb/glaciolens-glb-v1) and verified at immutable revision `bc65beeff3604d51e2242cb51536d5b51ff702f3`. No conclusion is made that training automatically transfers a dataset's license to all weights. |
 | GLB/GLBC imagery, labels and splits | The [GLB Zenodo deposit](https://zenodo.org/records/17917359) and its [record metadata](https://zenodo.org/api/records/17917359) declare **CC BY 4.0** and open access. The record describes GLB plus a challenge component called GLC; this project's GLBC name identifies the retained stress cohort. This declaration is stronger evidence than a collection badge, but exact local transformed assets/splits and any underlying-provider obligations have not been individually cleared for redistribution. They stay outside this source candidate. No noncommercial restriction is inferred. The tutorial contains only synthetic masks. |
 | Copernicus GLO-30 and adapted sidecars | The [official Copernicus DEM guidance](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM) permits worldwide GLO-30 access under its free license and specifies source and adaptation notices. Private sidecars reproject/resample that data; they are not relicensed Apache and are not exported. Any later sidecar or DEM-image release must carry the prescribed adapted-data notice and the applicable product terms. |
 

@@ -220,9 +220,12 @@
       "asset": "P56 selected EMA12 weights",
       "file_sha256": "19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230",
       "included": false,
-      "unresolved": "Verified public hosting and delivery; no automatic dataset-to-weight license inference",
       "license": "Apache-2.0",
-      "license_basis": "Explicit maintainer authorization for this exact selected checkpoint"
+      "license_basis": "Explicit maintainer authorization for this exact selected checkpoint",
+      "public_model_repository": "https://huggingface.co/MaxiWb/glaciolens-glb-v1",
+      "checkpoint_revision": "bc65beeff3604d51e2242cb51536d5b51ff702f3",
+      "public_access_verified": true,
+      "delivery_scope": "Original checkpoint hosted separately; excluded from source payload. Dataset licensing is not inferred from weight licensing."
     },
     {
       "asset": "GLB/GLBC imagery, labels and split lists",

@@ -12,7 +12,7 @@ The [quickstart](quickstart.md) runs CPU metadata inspection and saved-mask eval
 | Exact TRAIN/VAL/TEST membership/order and GLBC identity | Reproduction and comparison | Counts and identity metadata; sealed per-image manifests/aliases remain privately retained. An upstream download alone does not establish exact membership. |
 | Fixed supplementary pool/plan | Recorded training | Public `build_pools`/`build_plan` logic; materialized source/anchor plan remains private and needs exact input membership/support to reproduce. |
 | TerraMind pretrained initializer | Fresh training | Audited loading implementation, recorded pinning and upstream references; no initializer weights. Obtain independently under applicable terms. |
-| Selected P56 EMA12 weights | Selected-model inference | [Hash, byte size and tensor identity](../results/model_identity.json); current authorized private access verified in P61; no established public download. |
+| Selected P56 EMA12 weights | Selected-model inference | [Hash, byte size and tensor identity](../results/model_identity.json); original selected file [public on Hugging Face](https://huggingface.co/MaxiWb/glaciolens-glb-v1) under Apache-2.0; [pinned download](inference.md#checkpoint-download). |
 | Frozen normalization and aggregate metrics | Interpretation and implementation | [Normalization](../configs/normalization.json), [recipe](../configs/p56_recipe.json), [results](../results/metrics.json) bundled. |
 
 A hash establishes identity, not access or redistribution rights. [local_assets.example.json](../configs/local_assets.example.json) is a routing worksheet; no runner consumes that entire file. No owner authentication or hidden download is required by the public CPU tools.
