@@ -82,6 +82,8 @@ Generated NPZ files are local outputs, not public source members. `example_outpu
 
 ## Inspect metadata
 
+The retained `results/model_identity.json` is the P61 identity record with P63 maintenance metadata. Its `availability` and `public_weights_available` fields describe that historical snapshot and are preserved unchanged. Current public access is recorded in [release status](release_status.md#owner-decisions) and the [publication section](../release/source_provenance.json), with the [verified Hugging Face weights](https://huggingface.co/MaxiWb/glaciolens-glb-v1).
+
 In PowerShell, use the installed console executable:
 
 ```powershell

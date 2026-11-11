@@ -291,6 +291,7 @@
     "checkpoint_revision": "bc65beeff3604d51e2242cb51536d5b51ff702f3",
     "checkpoint_sha256": "19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230",
     "checkpoint_bytes": 1280672641,
-    "qualification_scope": "Publication is not numerical requalification; earlier phase availability fields describe their historical snapshots."
+    "qualification_scope": "Publication is not numerical requalification; earlier phase availability fields describe their historical snapshots.",
+    "historical_identity_availability": "results/model_identity.json is the retained P61 identity/P63 maintenance snapshot. Its availability and public_weights_available fields, and earlier phase availability flags here, are historical. Current verified availability is this publication section and the linked HF repository."
   }
 }

@@ -15,6 +15,8 @@ TerraMind-Large, UPerNet and a learned spatial residual contain **319,492,514** 
 
 Selected checkpoint size: **1,280,672,641 bytes**. File SHA256: `19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230`. Named-state SHA256: `902ef093300c15d95a7a27fd3771be27c25b7aeae0a0e9ed47b3486025f7345c`. This is the selected inference state, distinct from the final optimizer-resume file. P61 verified authorized private access and exact received bytes. The original file is now [public on Hugging Face](https://huggingface.co/MaxiWb/glaciolens-glb-v1), verified at revision `bc65beeff3604d51e2242cb51536d5b51ff702f3`; [download instructions](docs/inference.md#checkpoint-download).
 
+The retained `results/model_identity.json` is the P61 identity record with P63 maintenance metadata. Its `availability` and `public_weights_available` fields describe that historical snapshot and are preserved unchanged. Current public access is recorded in [release status](docs/release_status.md#owner-decisions) and the [publication section](release/source_provenance.json), with the [verified Hugging Face weights](https://huggingface.co/MaxiWb/glaciolens-glb-v1).
+
 ## Inputs and prediction scope
 
 Native images are 11-band 256×256 registered rasters. Zero-based slots **0,1,2,3,4,5,9,10** supply six optical and two stored SAR channels; the SAR slots are not physically verified as VV/VH. Frozen TRAIN statistics normalize the stored-value domain. Additional physical DEM comes from **Copernicus GLO-30 DSM, EGM2008**, bilinearly aligned to the image grid. Usable finite metres are normalized in float64 by `(metres - 651.663) / 928.168`, then cast to float32. The DEM enters both the base encoder and spatial branch.
