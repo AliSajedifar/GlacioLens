@@ -1,0 +1,10 @@
+# Recorded P56 numerical stack; installed and checked for the P61 L4 interface qualification.
+# The CUDA 13.0 torch pair requires a suitable upstream package source/platform.
+torch==2.14.1+cu130
+torchvision==0.29.1+cu130
+terratorch @ git+https://github.com/torchgeo/terratorch@f967ef77b00fe9097157a29d1dad4fda93aba4f9
+lightning==2.6.6
+numpy==2.4.6
+rasterio==1.5.2
+scipy==1.16.3
+timm==1.0.31

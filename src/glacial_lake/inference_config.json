@@ -1,0 +1,85 @@
+{
+  "identity": "P56-native-r1",
+  "checkpoint": {
+    "bytes": 1280672641,
+    "sha256": "19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230",
+    "state_sha256": "902ef093300c15d95a7a27fd3771be27c25b7aeae0a0e9ed47b3486025f7345c",
+    "epoch": 12,
+    "global_step": 11484,
+    "weight_state": "EMA"
+  },
+  "contract_sha256": "308f0048a55a887a677ed6c97a1d3574a85dc99c343905694fb31384c7db88e1",
+  "normalization_sha256": "d5cdbd604b446ed3d22a4594e8571a6f29e0e580c476b9d7f438fbe858294087",
+  "versions": {
+    "lightning": "2.6.6",
+    "numpy": "2.4.6",
+    "rasterio": "1.5.2",
+    "scipy": "1.16.3",
+    "terratorch": "1.2.13",
+    "timm": "1.0.31",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130"
+  },
+  "pinned_sources": {
+    "encoder_embeddings.py": "84f879fa15cc11ffbe0e38710ea17cb884014304a1402b9bfd1b6d6158bfdecc",
+    "modality_info.py": "3585b5fcc2c2c04218e040bacf1b6201cf6a13bd9f4ffa2458ee1c0130d07f0e",
+    "terramind_vit.py": "6cb33ce0e55aaa5cf36d70b360c3384bbdc68067777dfcd8afb94389a1711d85"
+  },
+  "parameters": 319492514,
+  "spatial_parameters": 57249,
+  "seed": 234,
+  "configuration": {
+    "model_args": {
+      "backbone": "terramind_v1_large",
+      "backbone_bands": {
+        "S1GRD": [
+          "VV",
+          "VH"
+        ],
+        "S2L2A": [
+          "BLUE",
+          "GREEN",
+          "RED",
+          "NIR_BROAD",
+          "SWIR_1",
+          "SWIR_2"
+        ]
+      },
+      "backbone_ckpt_path": null,
+      "backbone_img_size": 224,
+      "backbone_merge_method": "mean",
+      "backbone_modalities": [
+        "S2L2A",
+        "S1GRD",
+        "DEM"
+      ],
+      "backbone_pretrained": false,
+      "decoder": "UperNetDecoder",
+      "decoder_align_corners": false,
+      "decoder_channels": 256,
+      "necks": [
+        {
+          "indices": [
+            7,
+            11,
+            15,
+            23
+          ],
+          "name": "SelectIndices"
+        },
+        {
+          "name": "ReshapeTokensToImage",
+          "remove_cls_token": false
+        },
+        {
+          "name": "LearnedInterpolateToPyramidal"
+        }
+      ],
+      "num_classes": 1,
+      "rescale": true
+    },
+    "profile": {
+      "activation_checkpointing": true
+    }
+  }
+}

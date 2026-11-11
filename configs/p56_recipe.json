@@ -1,0 +1,197 @@
+{
+  "seed": 234,
+  "epochs": 24,
+  "updates_per_epoch": 957,
+  "total_updates": 22968,
+  "trainable_parameters": 319492514,
+  "native": {
+    "images_per_epoch": 15300,
+    "physical_pair": 2,
+    "pairs_per_normal_update": 8,
+    "tail_pairs": 2,
+    "shuffle": "random.Random(234+e)",
+    "D4": "original transform_description(e,index,seed=234)",
+    "loader_generator": "234000+e",
+    "objective": "original segmentation_loss + 0.20 P23 component_auxiliary_loss + original P27 negative_coefficient(e+1)*negative_region_loss"
+  },
+  "auxiliary": {
+    "coefficient": 0.25,
+    "pairs_normal": 2,
+    "pairs_tail": 1,
+    "roles": [
+      "TINY",
+      "SMALL",
+      "COMPLETE",
+      "EDGE"
+    ],
+    "size_cells": [
+      256,
+      4096
+    ],
+    "zoom_window": 128,
+    "context": 16,
+    "input_resize": "FP32 bilinear align_corners=False",
+    "logit_reduce": "FP32 avg_pool2d 2",
+    "target_resize": false,
+    "DEM_usable": "sidecar valid AND finite raw metres; resized nearest and imputed zero",
+    "sampling": "packet literal p53 source/anchor/crop/d4 v1 string RNGs; source uniform then anchor uniform; requested bin retained on same-role fallback"
+  },
+  "schedule": {
+    "warmup_updates": 1914,
+    "total_updates": 22968,
+    "end_ratio": 0.01
+  },
+  "EMA": {
+    "decay": 0.9995,
+    "initialize_after": 1914
+  },
+  "selection": {
+    "epochs": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "metric": "pooled two_class_miou",
+    "policy": "strict improvement; earliest exact tie",
+    "raw_VAL": false,
+    "GLBC": "one selected endpoint after final lock",
+    "TEST": "one selected endpoint before GLBC"
+  },
+  "intended": {
+    "native_train_views": 367200,
+    "auxiliary_train_views": 91824,
+    "train_views": 459024,
+    "train_calls": 229512,
+    "EMA_VAL_views": 42064,
+    "EMA_VAL_calls": 21032,
+    "GLBC_views": 1105,
+    "GLBC_calls": 553,
+    "total_views": 504106,
+    "total_calls": 252054,
+    "TEST_views": 1913,
+    "TEST_calls": 957
+  },
+  "fixed_packages": {
+    "lightning": "2.6.6",
+    "numpy": "2.4.6",
+    "rasterio": "1.5.2",
+    "scipy": "1.16.3",
+    "terratorch": "1.2.13",
+    "timm": "1.0.31",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130"
+  },
+  "pinned_sources": {
+    "encoder_embeddings.py": "84f879fa15cc11ffbe0e38710ea17cb884014304a1402b9bfd1b6d6158bfdecc",
+    "modality_info.py": "3585b5fcc2c2c04218e040bacf1b6201cf6a13bd9f4ffa2458ee1c0130d07f0e",
+    "terramind_vit.py": "6cb33ce0e55aaa5cf36d70b360c3384bbdc68067777dfcd8afb94389a1711d85"
+  },
+  "configuration": {
+    "checkpoint_path": "user_assets/TerraMind_v1_large.pt",
+    "console_update_every": 25,
+    "data_root": "user_assets/native",
+    "execution": {
+      "adamw_backend": "fused",
+      "compact_report_every_epochs": 8,
+      "effective_batch_size": 16,
+      "forward_microbatch_size": 2,
+      "logical_loss_group_size": 2,
+      "loss_path": "original",
+      "persistent_workers": false,
+      "revision": "p56_final_glb_training",
+      "validation_batch_size": 2
+    },
+    "expected_counts": {
+      "test": 1913,
+      "train": 15300,
+      "val": 1912
+    },
+    "model_args": {
+      "backbone": "terramind_v1_large",
+      "backbone_bands": {
+        "S1GRD": [
+          "VV",
+          "VH"
+        ],
+        "S2L2A": [
+          "BLUE",
+          "GREEN",
+          "RED",
+          "NIR_BROAD",
+          "SWIR_1",
+          "SWIR_2"
+        ]
+      },
+      "backbone_ckpt_path": "user_assets/TerraMind_v1_large.pt",
+      "backbone_img_size": 224,
+      "backbone_merge_method": "mean",
+      "backbone_modalities": [
+        "S2L2A",
+        "S1GRD",
+        "DEM"
+      ],
+      "backbone_pretrained": false,
+      "decoder": "UperNetDecoder",
+      "decoder_align_corners": false,
+      "decoder_channels": 256,
+      "necks": [
+        {
+          "indices": [
+            7,
+            11,
+            15,
+            23
+          ],
+          "name": "SelectIndices"
+        },
+        {
+          "name": "ReshapeTokensToImage",
+          "remove_cls_token": false
+        },
+        {
+          "name": "LearnedInterpolateToPyramidal"
+        }
+      ],
+      "num_classes": 1,
+      "rescale": true
+    },
+    "phase": "P56",
+    "profile": {
+      "accumulation": 8,
+      "activation_checkpointing": true,
+      "microbatch": 2
+    },
+    "provenance_assumption": "Published channel slots; S2L2A/S1GRD initialization is provisional. Stored SAR slots are not asserted to be physically VV/VH.",
+    "schema_version": 1,
+    "seed": 234,
+    "split_policy": "Exact retained TRAIN/VAL manifests; no repartition or fallback",
+    "training": {
+      "max_epochs": 24,
+      "encoder_lr": 1e-05,
+      "new_module_lr": 0.0001,
+      "weight_decay": 0.05,
+      "warmup_epochs": 2
+    },
+    "workers": 2
+  },
+  "scope": "Recorded scientific settings; paths are public placeholders. This file is not an end-to-end launcher."
+}

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glacial-lake"
+version = "0.1.0"
+description = "GlacioLens: TerraMind-based multimodal glacial lake segmentation research"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+requires-python = ">=3.11"
+maintainers = [{name = "Ali Sajedifar"}]
+dependencies = ["numpy>=2.2"]
+
+[project.urls]
+Repository = "https://github.com/AliSajedifar/GlacioLens"
+Documentation = "https://github.com/AliSajedifar/GlacioLens/blob/main/docs/quickstart.md"
+Issues = "https://github.com/AliSajedifar/GlacioLens/issues"
+
+[project.optional-dependencies]
+science = [
+  "terratorch @ git+https://github.com/torchgeo/terratorch@f967ef77b00fe9097157a29d1dad4fda93aba4f9",
+  "lightning==2.6.6", "numpy==2.4.6", "rasterio==1.5.2", "scipy==1.16.3", "timm==1.0.31",
+  "torch==2.14.1+cu130", "torchvision==0.29.1+cu130"
+]
+
+[project.scripts]
+glacial-lake = "glacial_lake.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["glacial_lake*"]
+
+[tool.setuptools.package-data]
+glacial_lake = ["inference_config.json", "inference_normalization.json"]

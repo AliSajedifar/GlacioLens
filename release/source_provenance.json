@@ -1,0 +1,291 @@
+{
+  "basis": "Accepted P56 immutable executed source, SHA256 900eeaf803006ef4ed7fa0a342ccb498ae947df5e4419a82c995f0c16d7cdfb0",
+  "status": "Preserved P56 computational projection and historical P61 L4 qualification; P63 setup/orchestration maintenance is CPU-checked, not a new whole-package L4 execution.",
+  "members": [
+    {
+      "path": "src/glacial_lake/model.py",
+      "original_sha256": "e8a081344eceb8704d1b205694bf342683f0858326385a96e816b8e3e349f267",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "e8a081344eceb8704d1b205694bf342683f0858326385a96e816b8e3e349f267"
+    },
+    {
+      "path": "src/glacial_lake/losses_metrics.py",
+      "original_sha256": "a78388d5bec190d5f30f3cf63bdc4472a8899798ddccbc5b69e71c7ea65dd67d",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "a78388d5bec190d5f30f3cf63bdc4472a8899798ddccbc5b69e71c7ea65dd67d"
+    },
+    {
+      "path": "src/glacial_lake/logical_loss.py",
+      "original_sha256": "ed702509fa347dade1eb75b8a954fb434e34270f39bbad2281fd4430a0f3d243",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "ed702509fa347dade1eb75b8a954fb434e34270f39bbad2281fd4430a0f3d243"
+    },
+    {
+      "path": "src/glacial_lake/p17_ema.py",
+      "original_sha256": "45dc663c9f189d0112a7470bca6b0dd4245452f5d3eb944246ac48ba70556ac9",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "45dc663c9f189d0112a7470bca6b0dd4245452f5d3eb944246ac48ba70556ac9"
+    },
+    {
+      "path": "src/glacial_lake/p17_schedule.py",
+      "original_sha256": "f9a1c2d17d7d2da519b471aec8d6a216aa9966f5aee822e58e471a3245360559",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "f9a1c2d17d7d2da519b471aec8d6a216aa9966f5aee822e58e471a3245360559"
+    },
+    {
+      "path": "src/glacial_lake/p22_spatial.py",
+      "original_sha256": "aa6dc39ad2ab33bde6310c30bf58119ac8be844eeafdf13548a77a5a659339fd",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "aa6dc39ad2ab33bde6310c30bf58119ac8be844eeafdf13548a77a5a659339fd"
+    },
+    {
+      "path": "src/glacial_lake/p23_loss.py",
+      "original_sha256": "a7b39f301a0c5cd00002f00ce6131e8f89f929bda5248338651d19dc0d4ba7a8",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "a7b39f301a0c5cd00002f00ce6131e8f89f929bda5248338651d19dc0d4ba7a8"
+    },
+    {
+      "path": "src/glacial_lake/p27_negative.py",
+      "original_sha256": "bc3340801523ca8fb95390cacb54b0ca5cf78655636d6a5f5f925dd3a6c34a49",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "bc3340801523ca8fb95390cacb54b0ca5cf78655636d6a5f5f925dd3a6c34a49"
+    },
+    {
+      "path": "src/glacial_lake/p56_selection.py",
+      "original_sha256": "a5ec97c19b6992883d6a0d84173567ebe52f0eb40b80638f3ea3b5adb2f10770",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "a5ec97c19b6992883d6a0d84173567ebe52f0eb40b80638f3ea3b5adb2f10770"
+    },
+    {
+      "path": "src/glacial_lake/p56_spatial_binding.py",
+      "original_sha256": "64c481471443a9c4d6f83cdce8629cd48f56b6b91f983c8bbee42ad18e421989",
+      "projection": "byte-identical",
+      "detail": "No computational changes.",
+      "public_sha256": "64c481471443a9c4d6f83cdce8629cd48f56b6b91f983c8bbee42ad18e421989"
+    },
+    {
+      "path": "src/glacial_lake/common.py",
+      "original_sha256": "7f60f7164c98c909ea89faee01168adcd594858aa94e256b238881961554b6bd",
+      "projection": "definition subset",
+      "detail": "Only local integrity/path/JSON helpers; private cloud-boundary orchestration excluded as a whole, not bypassed.",
+      "public_sha256": "e7b98e421556d9e3e3bb6bb66e620f4056b34020657f5085367191739acdee49"
+    },
+    {
+      "path": "src/glacial_lake/data.py",
+      "original_sha256": "7bf861e722c85ba9d5431e71aa6dffcee3dea0290830ad269cb97d8c55bad47b",
+      "projection": "definition subset",
+      "detail": "Unchanged raster reading, support, normalization and native dataset bodies; obsolete split fitting/index-publishing removed.",
+      "public_sha256": "32466bc3e20280a79b6ec5e6370293dd6d0c719adaf993289d984f6be7401557"
+    },
+    {
+      "path": "src/glacial_lake/p03_data.py",
+      "original_sha256": "aee0f8e1bc645164bb51ec2b3de4ba41450cd9b5907b334b7f281159fb9916b2",
+      "projection": "definition subset",
+      "detail": "Exact shared deterministic D4 geometry only; old auxiliary-input experiment removed.",
+      "public_sha256": "717c1f51dbf29e5fc674b028d84379e5dc94e1d1d0d19d5b90e8f96eca9eb902"
+    },
+    {
+      "path": "src/glacial_lake/p17_data.py",
+      "original_sha256": "db218d0ead490758963d01d7c8ed22eb5001cef46fb5f0269ad77b14e2390c30",
+      "projection": "path adapter",
+      "detail": "Explicit dem_root replaces owner runtime constant; __getitem__, normalization and all input guards unchanged.",
+      "public_sha256": "a13db577310e7119978ced6b326ed3ee24a470e084dbac02ff7ed522f88a002e"
+    },
+    {
+      "path": "src/glacial_lake/p56_native_data.py",
+      "original_sha256": "a25d2dce405c8b4bdadb7ac1e160f4810b37b0c46a9089e73c85d91f82268c95",
+      "projection": "path adapter",
+      "detail": "Pass explicit dem_root through constructor; geometry/collation unchanged.",
+      "public_sha256": "5df8a775883771a1d4a7ae59af2e0ddd8f7817b5dcf3509d1aad83996d54de57"
+    },
+    {
+      "path": "src/glacial_lake/p56_data.py",
+      "original_sha256": "6092e5660a58f3d5c8fdc607688826e6504e1d7bd79a254503dbb1375be9253d",
+      "projection": "path adapter",
+      "detail": "Pass explicit dem_root only. Fixed p53-* RNG strings intentionally remain unchanged because they bind the shared auxiliary curriculum.",
+      "public_sha256": "245713ea60c3969c8217998024e89c35699fc38dd633d504e3c4d77bc7159853"
+    },
+    {
+      "path": "src/glacial_lake/p17_model.py",
+      "original_sha256": "adbb2cec433e1b090bebcb7972f5fee55b300911962b1dbb6aa09253d82aaf46",
+      "projection": "definition subset",
+      "detail": "State hash and real first-update audit retained; historical private loader excluded.",
+      "public_sha256": "df971db122cfc2f6c0566578b38f0f8aad9ea47edd384ecddc474ca8a56574b0"
+    },
+    {
+      "path": "src/glacial_lake/p22_model.py",
+      "original_sha256": "43beb0513453b20f101ef974e9403f5f89abe3bc4a3e98fbca8cc73aaa0a0108",
+      "projection": "definition subset",
+      "detail": "Exact upstream gradient audit retained.",
+      "public_sha256": "ce7d2d2ae6dc36669f58cfbd36f96020ac85ed92e0caeb3f91c670e9b2847d9d"
+    },
+    {
+      "path": "src/glacial_lake/p27_model.py",
+      "original_sha256": "1b329c98ddf82c85db9f4c44933e4be14183d48475aa24ab400f50a7b808b1af",
+      "projection": "definition subset",
+      "detail": "Exact audit extension retained; historical loader excluded.",
+      "public_sha256": "cac970eae149b37de8fb56ee0c666db8de70ec810cc249b6ac8ee47d8d8ba067"
+    },
+    {
+      "path": "src/glacial_lake/p56_model.py",
+      "original_sha256": "7f4cf46fb46c462239cecda958e058ac753056b538f04db7e7643dfa5317f8f5",
+      "projection": "definition subset",
+      "detail": "Seed/RNG helpers only. Owner-specific load/persistence/journal functions remain in the exact private frozen snapshot; no replacement predictor or weakened loading guard.",
+      "public_sha256": "cd581f494634c04de8e4403d29da533d23eb11e91cb30065aaa9058f0b77312a"
+    },
+    {
+      "path": "src/glacial_lake/uncertainty.py",
+      "original_path": "scripts/p56_uncertainty.py",
+      "original_sha256": "8e578f8a2d82e5d6529a1a00c7c88c53e05863b1e271ff984c7ce22f9b1fea96",
+      "public_sha256": "8e578f8a2d82e5d6529a1a00c7c88c53e05863b1e271ff984c7ce22f9b1fea96",
+      "projection": "byte-identical",
+      "detail": "Portable paired-bootstrap implementation; not executed during organization."
+    }
+  ],
+  "computational_definition_checks": 59,
+  "all_retained_nonconstructor_definition_ASTs_equal": true,
+  "configuration_projection": {
+    "recipe": {
+      "path": "configs/p56_recipe.json",
+      "original_frozen_member": "configs/p56_resolved.json",
+      "original_sha256": "138f2791aa4864d07c953e919c0314b227a0f3d8258367d349b1bd198470fe12",
+      "public_sha256": "8ee79c381d9582faab4558d03164b76f5940103454069d4bd6ab663ab004a73c",
+      "scientific_values_unchanged": true,
+      "changes": [
+        "Explicit generic initializer/native asset paths",
+        "Selected scientific settings only; private orchestration fields excluded",
+        "Scope note identifying non-launcher recipe"
+      ]
+    },
+    "normalization": {
+      "path": "configs/normalization.json",
+      "sha256": "d5cdbd604b446ed3d22a4594e8571a6f29e0e580c476b9d7f438fbe858294087",
+      "byte_identical_to_frozen_normalization": true
+    }
+  },
+  "P59_usability": {
+    "scope": "Documentation and synthetic CPU onboarding; scientific graph, counts computation, normalization, recipe and identities unchanged",
+    "changes": [
+      {
+        "path": "src/glacial_lake/saved_counts.py",
+        "baseline_sha256": "08193fe37de7aa74d7c4c6d67def2375ce2f06328d63dda3f2677e3e0ec6f494",
+        "detail": "Expose unchanged pooled_metrics on existing integer pooled counts; packed_counts computation unchanged.",
+        "public_sha256": "9ae76ebf269c072afea2efc139593406ca2fe1c1423dfffb3fcc1ed5de9de476"
+      },
+      {
+        "path": "src/glacial_lake/cli.py",
+        "baseline_sha256": "d666216dc972cbe0533896f3ac13c78fbb9dfff4de8b62b58e0c224c4c1a463e",
+        "detail": "Recount help text describes fractional metrics.",
+        "public_sha256": "ef2e510480adf58480811f68997f4b82c2fb4efdbbabcec0190d684f970a1ec0"
+      },
+      {
+        "path": "examples/make_synthetic_masks.py",
+        "detail": "New deterministic synthetic masks; no model or benchmark data.",
+        "public_sha256": "b9e66482d64b1242e1b522447a4ef4224aa784bb92e9125e982bc7ada5660182"
+      }
+    ],
+    "hash_scope": "Historical P59 post-change source hashes; later CLI revisions are separately recorded, not represented by these hashes."
+  },
+  "p61_inference": {
+    "identity": "P56-native-r1",
+    "qualification": {
+      "original_TEST_indices": [
+        0,
+        1,
+        1912
+      ],
+      "batches": [
+        2,
+        1
+      ],
+      "views": 3,
+      "model_calls": 2,
+      "mask_pixel_differences": [
+        0,
+        0,
+        0
+      ],
+      "hardware": "NVIDIA L4"
+    },
+    "new_runtime": [
+      {
+        "path": "src/glacial_lake/native_input.py",
+        "sha256": "7b80fe4f2099f131e785e4274d21b87f1ea0d52159b5aaa3842399b8c5d36e2e"
+      },
+      {
+        "path": "src/glacial_lake/native_inference.py",
+        "sha256": "85a886f3bad7e93396b0a7535e1dce8476db98945e101e3c096b50a2da347dfb"
+      },
+      {
+        "path": "src/glacial_lake/inference_config.json",
+        "sha256": "85b3fc5c1b17681f750ee909aa35e93a9d63470930ef83dbbacafe01d8c97521"
+      },
+      {
+        "path": "src/glacial_lake/inference_normalization.json",
+        "sha256": "d5cdbd604b446ed3d22a4594e8571a6f29e0e580c476b9d7f438fbe858294087"
+      }
+    ],
+    "science_changed": false,
+    "P53_package": "Separate original EMA13 identity and qualification retained",
+    "hash_scope": "Historical original P61 executed runtime members; new_runtime hashes are not claims about later P63 edited files.",
+    "executed_runtime_archive_sha256": "a9913731f23b809f2795bda166dacbb6520f05bc2de3f236ccc8231861c6495d"
+  },
+  "p63_maintenance": {
+    "date": "2026-11-10",
+    "scope": "Strict setup diagnostics and shared CPU preflight before CLI construction; Git byte preservation; metadata/docs repairs",
+    "current_runtime_changes": [
+      {
+        "path": "src/glacial_lake/cli.py",
+        "before_sha256": "0dcae2ee809eb21bc55c474c39bf7b9fe3964b2a1e0b15ea1cd97959359c39ec",
+        "sha256": "9e927724237c21c06d9673120122ffdc76f56c1dbdae9a128074690fb86dc343"
+      },
+      {
+        "path": "src/glacial_lake/native_inference.py",
+        "before_sha256": "85a886f3bad7e93396b0a7535e1dce8476db98945e101e3c096b50a2da347dfb",
+        "sha256": "f2639927239472170066195051df72b5bd80a2a90ddf03bf332f3fececf6affb"
+      },
+      {
+        "path": "tools/bootstrap_inference.py",
+        "before_sha256": "55760ff3c28caa9c538e01d27469905213c87c5eded24e0610ca8139a5d3e40d",
+        "sha256": "f2dfafb085a7b4b68a8e540abab059228b3cf403eb254b6960c4ff73863a6be9"
+      }
+    ],
+    "unchanged_science": "Checkpoint/config/normalization, native_input.py, scientific graph/spatial modules, batch reread comparison and forward/output arithmetic",
+    "verification_scope": "Focused CPU mocks/fixtures, actual public Git staged/checkout/archive round trips and an isolated ordinary wheel install",
+    "whole_package_newly_executed_on_L4": false,
+    "model_calls": 0,
+    "public_export_identity": "External dist/glacial_lake_detection_source.manifest.json; no recursive archive checksum in its payload",
+    "public_weights_available": false
+  },
+  "presentation": {
+    "project": "GlacioLens",
+    "trained_release": "GlacioLens-GLB-v1",
+    "descriptive_title": "GlacioLens: TerraMind-Based Multimodal Glacial Lake Segmentation",
+    "scientific_identity": "P56 EMA12 / step 11484",
+    "runtime_provenance": "P56-native-r1",
+    "distribution_and_cli": "glacial-lake",
+    "python_import": "glacial_lake",
+    "scope": "Display naming and documentation only; scientific/runtime bytes and historical qualification identities are unchanged.",
+    "current_public_export_identity": "External dist/glacial_lake_detection_source.manifest.json",
+    "whole_package_newly_executed_on_L4": false,
+    "public_weights_available": false
+  },
+  "publication": {
+    "source_repository": "https://github.com/AliSajedifar/GlacioLens",
+    "maintainer": "Ali Sajedifar",
+    "maintainer_login": "AliSajedifar",
+    "source_license": "Apache-2.0",
+    "selected_checkpoint_license": "Apache-2.0",
+    "public_weights_available": false,
+    "scope": "Publication metadata only; historical runtime/source hashes and scientific qualification unchanged."
+  }
+}

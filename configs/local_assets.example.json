@@ -1,0 +1,9 @@
+{
+  "native_root": "user_assets/native",
+  "dem_sidecar_root": "user_assets/physical_dem",
+  "sample_manifest": "user_assets/samples.json",
+  "public_initializer": "user_assets/TerraMind_v1_large.pt",
+  "selected_p56_checkpoint": "user_assets/p56_ema12.ckpt",
+  "normalization": "configs/normalization.json",
+  "automatic_download": false
+}

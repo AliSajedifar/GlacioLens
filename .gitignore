@@ -1,0 +1,21 @@
+# Private evidence, assets and active local tools
+/_local/
+/.cache/
+/.tools/
+/.venv-mcp/
+/.codex/
+/.agents/
+/.aws/
+/AGENTS.md
+/dist/
+/user_assets/
+/example_output/
+.env
+.env.*
+!*.example
+__pycache__/
+*.py[cod]
+*.egg-info/
+/build/
+.pytest_cache/
+.venv/

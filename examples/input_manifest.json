@@ -1,0 +1,8 @@
+[
+  {
+    "id": "example_chip_001",
+    "image": "user_assets/chip_001.tif",
+    "dem": "user_assets/chip_001_dem.tif",
+    "usability": "user_assets/chip_001_usability.tif"
+  }
+]

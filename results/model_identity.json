@@ -1,0 +1,59 @@
+{
+  "bytes": 1280672641,
+  "sha256": "19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230",
+  "state_sha256": "902ef093300c15d95a7a27fd3771be27c25b7aeae0a0e9ed47b3486025f7345c",
+  "epoch": 12,
+  "global_step": 11484,
+  "weight_state": "EMA",
+  "seed": 234,
+  "training_epochs": 24,
+  "training_updates": 22968,
+  "parameters": 319492514,
+  "spatial_parameters": 57249,
+  "availability": "No public checkpoint distribution established; obtain authorized weights independently.",
+  "qualified_standalone_P56_predictor": true,
+  "public_weights_available": false,
+  "qualification": {
+    "identity": "P56-native-r1",
+    "execution_phase": "P61",
+    "scope": "Original fully valid native TEST pair/tail on the recorded Colab NVIDIA L4 stack only",
+    "original_TEST_indices": [
+      0,
+      1,
+      1912
+    ],
+    "batch_sizes": [
+      2,
+      1
+    ],
+    "image_views": 3,
+    "model_calls": 2,
+    "differing_pixels": [
+      0,
+      0,
+      0
+    ],
+    "selected_state_unchanged": true,
+    "device": "NVIDIA L4",
+    "python": "3.13.16",
+    "scientific_versions": {
+      "lightning": "2.6.6",
+      "numpy": "2.4.6",
+      "rasterio": "1.5.2",
+      "scipy": "1.16.3",
+      "terratorch": "1.2.13",
+      "timm": "1.0.31",
+      "torch": "2.14.1+cu130",
+      "torchvision": "0.29.1+cu130"
+    },
+    "executed_runtime_archive_sha256": "a9913731f23b809f2795bda166dacbb6520f05bc2de3f236ccc8231861c6495d",
+    "arbitrary_batch_device_input_geography_equivalence": false
+  },
+  "maintenance": {
+    "phase": "P63",
+    "date": "2026-11-10",
+    "scope": "Git delivery, setup/orchestration and metadata/documentation repairs; focused CPU checks only",
+    "whole_package_newly_executed_on_L4": false,
+    "current_source_bindings": "release/source_provenance.json#p63_maintenance"
+  }
+}

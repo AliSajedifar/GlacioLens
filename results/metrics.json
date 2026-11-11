@@ -1,0 +1,82 @@
+{
+  "accepted_run": "P56 seed234 EMA12",
+  "cohorts": {
+    "VAL": {
+      "images": 1912,
+      "pooled": {
+        "aggregation": "pixel-pooled confusion counts",
+        "background_iou": 0.9892006624271787,
+        "fn": 628159,
+        "fp": 674412,
+        "lake_dice": 0.8780431262813552,
+        "lake_iou": 0.7825997120291662,
+        "precision": 0.8742570971506987,
+        "recall": 0.8818620893419372,
+        "tn": 119313253,
+        "tp": 4689008,
+        "two_class_miou": 0.8859001872281724,
+        "undefined_convention": "null; two-class mIoU requires both class unions",
+        "valid_pixels": 125304832
+      }
+    },
+    "TEST": {
+      "images": 1913,
+      "pooled": {
+        "aggregation": "pixel-pooled confusion counts",
+        "background_iou": 0.9891016398765979,
+        "fn": 491295,
+        "fp": 827551,
+        "lake_dice": 0.8685502096166301,
+        "lake_iou": 0.7676436170643849,
+        "precision": 0.84038492732513,
+        "recall": 0.8986688628501173,
+        "tn": 119694406,
+        "tp": 4357116,
+        "two_class_miou": 0.8783726284704914,
+        "undefined_convention": "null; two-class mIoU requires both class unions",
+        "valid_pixels": 125370368
+      }
+    },
+    "GLBC": {
+      "images": 1105,
+      "pooled": {
+        "aggregation": "pixel-pooled confusion counts",
+        "background_iou": 0.9844336029005287,
+        "fn": 552366,
+        "fp": 537066,
+        "lake_dice": 0.8169550371842215,
+        "lake_iou": 0.6905528216271489,
+        "precision": 0.8190605850194511,
+        "recall": 0.8148602869976259,
+        "tn": 68896705,
+        "tp": 2431143,
+        "two_class_miou": 0.8374932122638388,
+        "undefined_convention": "null; two-class mIoU requires both class unions",
+        "valid_pixels": 72417280
+      }
+    }
+  },
+  "reporting_targets": {
+    "candidate_class_pct": 87.83726284704913,
+    "delta_percentage_points": 3.8672628470491333,
+    "five_percent_relative_threshold_pct": 88.1685,
+    "five_percentage_point_threshold_pct": 88.97,
+    "meets_five_percent_relative": false,
+    "meets_five_percentage_points": false,
+    "published_TerraMind_class_pct": 83.97,
+    "relative_improvement_percent": 4.605529173572864,
+    "reporting_only": true
+  },
+  "reference_scope": {
+    "column": "GLB",
+    "date": "2026-10-01",
+    "input_scope": "Paper-described, model-specific routes over GLB inputs; public GLB loader has no physical sidecar; exact selected execution overrides remain unavailable.",
+    "metric": "pooled two-class mIoU, percent",
+    "paper": "Cryo-Bench: Benchmarking Geospatial Foundation Models for Cryosphere Mapping",
+    "selected_checkpoint_attribution": "Unavailable for selected fine-tuned TerraMind/CROMA; use reported scalars, not invented paired evidence.",
+    "table": "VIII-B",
+    "url": "https://arxiv.org/html/2603.01576v5",
+    "version": "arXiv:2603.01576v5"
+  },
+  "historical_P53_P54_not_final": true
+}

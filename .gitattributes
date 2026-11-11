@@ -1,0 +1,22 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+# Preserve exact runtime/provenance bytes without disabling normal text diffs.
+src/glacial_lake/** -text !eol
+configs/p56_recipe.json -text !eol
+configs/normalization.json -text !eol
+examples/make_synthetic_masks.py -text !eol
+tools/bootstrap_inference.py -text !eol
+LICENSE -text !eol
+/_local export-ignore
+/.cache export-ignore
+/.tools export-ignore
+/.venv-mcp export-ignore
+/.codex export-ignore
+/.agents export-ignore
+/.aws export-ignore
+/AGENTS.md export-ignore
+/dist export-ignore
+/user_assets export-ignore
+.env* export-ignore

@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "review_phase": "P63 accounting update; original P60/P61 license review retained",
+  "scope": "Published Apache-2.0 owner-controlled source; upstream implementations and datasets retain their own terms.",
+  "owner_copyright_identity": null,
+  "official_license": {
+    "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "unmodified": true
+  },
+  "groups": [
+    {
+      "category": "official_license_text",
+      "files": [
+        "LICENSE"
+      ],
+      "origin": "Unmodified official Apache License 2.0 text; authority URL and byte hash below.",
+      "license": "Apache-2.0",
+      "retained_notices": []
+    },
+    {
+      "category": "project_scientific_source",
+      "files": [
+        "src/glacial_lake/common.py",
+        "src/glacial_lake/data.py",
+        "src/glacial_lake/logical_loss.py",
+        "src/glacial_lake/losses_metrics.py",
+        "src/glacial_lake/model.py",
+        "src/glacial_lake/p03_data.py",
+        "src/glacial_lake/p17_data.py",
+        "src/glacial_lake/p17_ema.py",
+        "src/glacial_lake/p17_model.py",
+        "src/glacial_lake/p17_schedule.py",
+        "src/glacial_lake/p22_model.py",
+        "src/glacial_lake/p22_spatial.py",
+        "src/glacial_lake/p23_loss.py",
+        "src/glacial_lake/p27_model.py",
+        "src/glacial_lake/p27_negative.py",
+        "src/glacial_lake/p56_data.py",
+        "src/glacial_lake/p56_model.py",
+        "src/glacial_lake/p56_native_data.py",
+        "src/glacial_lake/p56_selection.py",
+        "src/glacial_lake/p56_spatial_binding.py",
+        "src/glacial_lake/uncertainty.py"
+      ],
+      "origin": "Accepted P56 executed source projection; exact originals and P58 path adaptations are individually mapped in release/source_provenance.json. No new scientific edits in P60.",
+      "license": "Apache-2.0",
+      "retained_notices": [
+        "logical_loss.py: user-supplied P02S reference acknowledgment",
+        "p22_spatial.py: P22 project-reference description"
+      ]
+    },
+    {
+      "category": "project_generated_results_and_configuration",
+      "files": [
+        "configs/local_assets.example.json",
+        "configs/normalization.json",
+        "configs/p56_recipe.json",
+        "docs/figures/p56_results.png",
+        "results/metrics.csv",
+        "results/metrics.json",
+        "results/model_identity.json"
+      ],
+      "origin": "Project recipe, aggregate statistics, selected identity, example asset routing and self-authored plot; no raw samples, split lists or model tensors.",
+      "license": "Apache-2.0",
+      "retained_notices": [
+        "Figure caption identifies metric, units, cohorts and dependence."
+      ]
+    },
+    {
+      "category": "project_cpu_and_export_tools",
+      "files": [
+        "examples/make_synthetic_masks.py",
+        "scripts/evaluate/recount_saved_masks.py",
+        "scripts/prepare/check_manifest.py",
+        "scripts/train/inspect_recipe.py",
+        "src/glacial_lake/__init__.py",
+        "src/glacial_lake/__main__.py",
+        "src/glacial_lake/cli.py",
+        "src/glacial_lake/manifest_check.py",
+        "src/glacial_lake/saved_counts.py",
+        "tools/build_public_source.py"
+      ],
+      "origin": "Project CLI, standard-library allowlist exporter, CPU mask/manifest utilities and synthetic fixture generator. Imported dependencies are separate distributions.",
+      "license": "Apache-2.0",
+      "retained_notices": [
+        "LICENSE",
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    {
+      "category": "project_documentation_and_metadata",
+      "files": [
+        ".gitattributes",
+        ".gitignore",
+        "MODEL_CARD.md",
+        "README.md",
+        "THIRD_PARTY_NOTICES.md",
+        "docs/citation.md",
+        "docs/method.md",
+        "docs/project_overview.md",
+        "docs/quickstart.md",
+        "docs/release_status.md",
+        "docs/reproduction.md",
+        "docs/results.md",
+        "docs/training_update.md",
+        "examples/input_manifest.json",
+        "pyproject.toml",
+        "release/license_provenance.json",
+        "release/public_files.json",
+        "release/source_provenance.json",
+        "requirements-science-recorded.txt"
+      ],
+      "origin": "Project-authored guides, build/release metadata, placeholder example manifest and derivative/attribution records.",
+      "license": "Apache-2.0",
+      "retained_notices": [
+        "LICENSE",
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    {
+      "category": "project_p56_inference",
+      "files": [
+        "docs/inference.md",
+        "src/glacial_lake/native_input.py",
+        "src/glacial_lake/native_inference.py",
+        "src/glacial_lake/inference_config.json",
+        "src/glacial_lake/inference_normalization.json",
+        "tools/bootstrap_inference.py"
+      ],
+      "origin": "Project-authored P61 interface/bootstrap. Target-free transform follows retained P56/P18 input operations; full restore and spatial binding reuse the preserved P56 project implementation. Exact TRAIN statistics copied unchanged. Historical project-owned P53 API informed routing/GeoTIFF engineering only; no P53 weights or qualification relabeled. External dependencies remain separately attributed distributions. P63 changes only setup/preflight orchestration and guides; numerical input/model operations remain unchanged.",
+      "license": "Apache-2.0",
+      "retained_notices": [
+        "LICENSE",
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    }
+  ],
+  "coverage": {
+    "files": 64,
+    "every_member_exactly_once": true
+  },
+  "upstream": [
+    {
+      "component": "TerraTorch",
+      "relationship": "import-only; not redistributed",
+      "version": "f967ef77b00fe9097157a29d1dad4fda93aba4f9",
+      "declared_license": "Apache-2.0 AND MIT",
+      "mit_exceptions": [
+        "terratorch/datasets/generic_multimodal_dataset.py",
+        "terratorch/datasets/biomassters.py",
+        "terratorch/datasets/generic_pixel_wise_dataset.py",
+        "terratorch/datasets/substation.py"
+      ],
+      "header_findings": "MIT_FILES names all four; last three Microsoft Corporation MIT headers; generic_multimodal has TerraTorch contributor header.",
+      "relevant_imports": [
+        "terratorch.models.encoder_decoder_factory.EncoderDecoderFactory",
+        "terratorch.models.backbones.terramind.model.terramind_vit.TerraMindViT"
+      ],
+      "relevant_retained_headers": "Copyright 2025 IBM Corp.; Apache-2.0; encoder_embeddings and modality_info credit EPFL and Apple adaptations.",
+      "pinned_retained_source_checks": [
+        {
+          "name": "encoder_embeddings.py",
+          "sha256": "84f879fa15cc11ffbe0e38710ea17cb884014304a1402b9bfd1b6d6158bfdecc",
+          "exact_download_match": true
+        },
+        {
+          "name": "modality_info.py",
+          "sha256": "3585b5fcc2c2c04218e040bacf1b6201cf6a13bd9f4ffa2458ee1c0130d07f0e",
+          "exact_download_match": true
+        },
+        {
+          "name": "terramind_vit.py",
+          "sha256": "6cb33ce0e55aaa5cf36d70b360c3384bbdc68067777dfcd8afb94389a1711d85",
+          "exact_download_match": true
+        }
+      ],
+      "notice_url_result": "Exact-pin root NOTICE returned HTTP 404; no upstream code or NOTICE is redistributed."
+    },
+    {
+      "component": "Cryo-Bench/Pangaea",
+      "relationship": "inspected reference, not redistributed",
+      "path": "pangaea/datasets/glb_random.py and retained historical reference closure",
+      "license": "MIT",
+      "copyright": "Copyright (c) 2026 Saurabh Kaushik",
+      "retained_license_sha256": "c55e0ab5fdf2f4297f76afce9a99e08a23906befe54e2b209b8910ec7c4b6602",
+      "exact_reference_version": "Local retained file fingerprints; no unsupported commit assigned",
+      "reference_file_sha256": "2cdb30421be9aa90bea87af136cdd61f85736e1a0b3b7fa2809ff3638d033f22",
+      "notice_action": "Full original MIT text preserved alongside excluded private reference closure; no copied portions identified in public members."
+    },
+    {
+      "component": "NumPy, SciPy, Rasterio, PyTorch, torchvision, Lightning, timm",
+      "relationship": "imports only; no source redistributed",
+      "version_evidence": "pyproject.toml and requirements-science-recorded.txt",
+      "license_action": "Separate dependency distributions retain their own terms; no transitive code license is replaced."
+    }
+  ],
+  "comparison": {
+    "public_python_files": 31,
+    "upstream_python_files": 41,
+    "substantial_exact_function_matches": [],
+    "limitation": "Supplementary AST comparison is not ownership proof. Manual review covered loaders, model factory audits, live-context hook, project losses, scientific component/source projection and dependency headers."
+  },
+  "copied_external_implementation_members": [],
+  "source_headers_changed": [],
+  "new_notice_file": false,
+  "additional_mit_text_required_for_public_members": false,
+  "required_distribution_notices": [
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "asset_boundaries": [
+    {
+      "asset": "TerraMind-1.0-large initializer",
+      "verified_terms": "Official model card declares Apache-2.0",
+      "included": false
+    },
+    {
+      "asset": "P56 selected EMA12 weights",
+      "file_sha256": "19bcdaa9f925da61ecc46aab755b265960c632aacdec582bd3050a6b84bd4230",
+      "included": false,
+      "unresolved": "Verified public hosting and delivery; no automatic dataset-to-weight license inference",
+      "license": "Apache-2.0",
+      "license_basis": "Explicit maintainer authorization for this exact selected checkpoint"
+    },
+    {
+      "asset": "GLB/GLBC imagery, labels and split lists",
+      "verified_terms": "Zenodo record 17917359 declares CC BY 4.0, open access; deposit calls challenge component GLC",
+      "included": false,
+      "unresolved": "Exact local derivatives/splits and underlying-provider obligations not individually verified for redistribution"
+    },
+    {
+      "asset": "Copernicus GLO-30 / adapted sidecars",
+      "included": false,
+      "verified_terms": "Official free GLO-30 license guidance with prescribed source/adaptation notices",
+      "source": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "unresolved": "Future sidecar/DEM-panel packaging must bind product terms and prescribed adapted-data notice"
+    },
+    {
+      "asset": "Synthetic example and aggregate plot",
+      "included": true,
+      "terms": "Project-generated Apache-2.0; no real imagery/labels/DEM/prediction pixels"
+    }
+  ],
+  "unresolved_owner_metadata": [
+    "Legal copyright history and any applicable institutional constraints are not inferred from maintainer identity."
+  ],
+  "unresolved_copied_source_members": [],
+  "upstream_evidence": [
+    {
+      "name": "apache2.txt",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "status": 200
+    },
+    {
+      "name": "pinned_LICENSE",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "status": 200
+    },
+    {
+      "name": "pinned_MIT_FILES.txt",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/MIT_FILES.txt",
+      "bytes": 176,
+      "sha256": "04fa520730212ee1783c797d85ca1710f05c88391124c46f599df871f6ebf122",
+      "status": 200
+    },
+    {
+      "name": "pinned_pyproject.toml",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/pyproject.toml",
+      "bytes": 5562,
+      "sha256": "a716f8800008803e449873be96c49e2b52ec6f644244b675a1d7154498cc795b",
+      "status": 200
+    },
+    {
+      "name": "initializer_README.md",
+      "url": "https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-large/raw/main/README.md",
+      "bytes": 7729,
+      "sha256": "1fac187c72dfbc20c5c4588885b96ed4c1a6d3ec307e8ec6a17993e5d5b9d9d7",
+      "status": 200
+    },
+    {
+      "name": "zenodo.json",
+      "url": "https://zenodo.org/api/records/17917359",
+      "bytes": 6379,
+      "sha256": "4d1abf842e6934c6abc66ddab37a075d535443fbcc79b8fe047b0bb35ae7ead3",
+      "status": 200
+    },
+    {
+      "name": "cryo_LICENSE",
+      "url": "https://raw.githubusercontent.com/Sk-2103/Cryo-Bench/main/LICENSE",
+      "bytes": 1072,
+      "sha256": "c55e0ab5fdf2f4297f76afce9a99e08a23906befe54e2b209b8910ec7c4b6602",
+      "status": 200
+    },
+    {
+      "path": "NOTICE",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/NOTICE",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "terratorch/datasets/generic_multimodal_dataset.py",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/terratorch/datasets/generic_multimodal_dataset.py",
+      "bytes": 56184,
+      "sha256": "bd3a351f1fec8b10c649fb181806c2575b990d9d3bb2f9a3177954ed3d55d94d",
+      "status": 200
+    },
+    {
+      "path": "terratorch/datasets/biomassters.py",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/terratorch/datasets/biomassters.py",
+      "bytes": 19282,
+      "sha256": "f40705d9158df0744bda5be57719443f76f81e903cd0f409f172c45014edc9dc",
+      "status": 200
+    },
+    {
+      "path": "terratorch/datasets/generic_pixel_wise_dataset.py",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/terratorch/datasets/generic_pixel_wise_dataset.py",
+      "bytes": 26077,
+      "sha256": "f0ba19adb0e2c70fe28bec6de329007c7b10fac5abbf151751557693b3f877f7",
+      "status": 200
+    },
+    {
+      "path": "terratorch/datasets/substation.py",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/terratorch/datasets/substation.py",
+      "bytes": 23834,
+      "sha256": "e7483297786691cbdefd22b2166e0720278d349af1d5a2a0dea982d25071407f",
+      "status": 200
+    },
+    {
+      "path": "terratorch/models/backbones/terramind/model/encoder_embeddings.py",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/terratorch/models/backbones/terramind/model/encoder_embeddings.py",
+      "bytes": 20293,
+      "sha256": "84f879fa15cc11ffbe0e38710ea17cb884014304a1402b9bfd1b6d6158bfdecc",
+      "status": 200
+    },
+    {
+      "path": "terratorch/models/backbones/terramind/model/modality_info.py",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/terratorch/models/backbones/terramind/model/modality_info.py",
+      "bytes": 17050,
+      "sha256": "3585b5fcc2c2c04218e040bacf1b6201cf6a13bd9f4ffa2458ee1c0130d07f0e",
+      "status": 200
+    },
+    {
+      "path": "terratorch/models/backbones/terramind/model/terramind_vit.py",
+      "url": "https://raw.githubusercontent.com/torchgeo/terratorch/f967ef77b00fe9097157a29d1dad4fda93aba4f9/terratorch/models/backbones/terramind/model/terramind_vit.py",
+      "bytes": 14407,
+      "sha256": "6cb33ce0e55aaa5cf36d70b360c3384bbdc68067777dfcd8afb94389a1711d85",
+      "status": 200
+    }
+  ],
+  "maintainer": {
+    "name": "Ali Sajedifar",
+    "login": "AliSajedifar",
+    "source_repository": "https://github.com/AliSajedifar/GlacioLens"
+  }
+}
