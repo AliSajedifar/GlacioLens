@@ -10,6 +10,7 @@
 /dist/
 /user_assets/
 /example_output/
+/examples/native_demo/
 .env
 .env.*
 !*.example

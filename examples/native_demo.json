@@ -1,0 +1,78 @@
+{
+  "repo": "MaxiWb/glaciolens-glb-v1",
+  "revision": "f9d9eab60fba1c7dd023cfcfd1cb51a4da53dd2c",
+  "url": "https://huggingface.co/MaxiWb/glaciolens-glb-v1/resolve/f9d9eab60fba1c7dd023cfcfd1cb51a4da53dd2c/examples/native_demo.zip",
+  "commit_url": "https://huggingface.co/MaxiWb/glaciolens-glb-v1/commit/f9d9eab60fba1c7dd023cfcfd1cb51a4da53dd2c",
+  "bytes": 6608007,
+  "sha256": "d936c393f827665f04f0fc55c47cc7a0fb9ba7d7d707fa53f31bebebe8a49661",
+  "files": {
+    "ASSET_MANIFEST.json": {
+      "bytes": 2624,
+      "sha256": "ef38e82b6ccf14d7e82df45bb45eea52be6676f9b4f8a932096105781bd7733f"
+    },
+    "DATA_NOTICES.md": {
+      "bytes": 2623,
+      "sha256": "968024f98a0d91a982a2a8a63ad3e41b2cf41067722007cf891630f8d45a1659"
+    },
+    "dem_provenance.json": {
+      "bytes": 3744,
+      "sha256": "227664f9901ebc24a1b9d32d37114cda0813264c4c1c5642e2618b977e1ed07d"
+    },
+    "expected/ACS_S2A_17WPV_20200720_1_L2A_34.tif": {
+      "bytes": 903,
+      "sha256": "6b2383ad3322d1347f9e7c9f64d5d05f8b55180e5a9c2846510b0f9fe401c25b"
+    },
+    "expected/ACS_S2A_17WPV_20200722_1_L2A_86.tif": {
+      "bytes": 764,
+      "sha256": "9a6004d21460d18de5322d4f53b621d34be286b51a08d3793ac1cb0cc87b7451"
+    },
+    "expected/WC_S2B_9UYT_20200829_0_L2A_223.tif": {
+      "bytes": 1045,
+      "sha256": "9ecae89ea608221cf7618d912f56ac69b3487c0a6114b708c1b2c6518f48da3a"
+    },
+    "inputs/ACS_S2A_17WPV_20200720_1_L2A_34/dem.tif": {
+      "bytes": 213453,
+      "sha256": "b768a9113506ce01ff043fc0c74bd2c91623e440496afee5f5293df3cde60d53"
+    },
+    "inputs/ACS_S2A_17WPV_20200720_1_L2A_34/image.tif": {
+      "bytes": 2885556,
+      "sha256": "a12a4a97d31ce14011f47612575477d12cd045b3dc895a3f956b3b3bbaea90fb"
+    },
+    "inputs/ACS_S2A_17WPV_20200720_1_L2A_34/usability.tif": {
+      "bytes": 684,
+      "sha256": "6e4f9d596c336c25b101b6b7eb16dca6cd68037821b23b41b224e0333ce1f327"
+    },
+    "inputs/ACS_S2A_17WPV_20200722_1_L2A_86/dem.tif": {
+      "bytes": 229134,
+      "sha256": "707e193629688be8bb510f100c155315e603295f59babb35446bbfcff3971653"
+    },
+    "inputs/ACS_S2A_17WPV_20200722_1_L2A_86/image.tif": {
+      "bytes": 2885556,
+      "sha256": "24023f1ace8bcd33ada1b9a461862b02bb7e3425d72beb6bc079d71dc675d8d1"
+    },
+    "inputs/ACS_S2A_17WPV_20200722_1_L2A_86/usability.tif": {
+      "bytes": 684,
+      "sha256": "d23d9c705562345bee445c5cffb38b2ef7fa76e865f44e986e281f1f31fee677"
+    },
+    "inputs/WC_S2B_9UYT_20200829_0_L2A_223/dem.tif": {
+      "bytes": 213066,
+      "sha256": "1b96e4aa0035b714dcff5c14213f2dce3bd6a10f843e960c233a54ffaf571c76"
+    },
+    "inputs/WC_S2B_9UYT_20200829_0_L2A_223/image.tif": {
+      "bytes": 2885555,
+      "sha256": "0d56bd62c46e89c4fe173da69f9421356f5f564b9356f18a7b5c2a5a4634209b"
+    },
+    "inputs/WC_S2B_9UYT_20200829_0_L2A_223/usability.tif": {
+      "bytes": 683,
+      "sha256": "0230ce99847fbae78e332c2c3df493861f33c8d625a68bd2f3dc7015863039b3"
+    },
+    "inputs.json": {
+      "bytes": 755,
+      "sha256": "ef5b510b90ef8c93c01f995d90dee3eb6dd6a5b8d5bb6773ede484dc6ae198b2"
+    },
+    "qualified_reference.json": {
+      "bytes": 10920,
+      "sha256": "b6e0b32e0ec19c202e5b308b17463db8f192e4e5a7a37fb002769ca7d72a9b18"
+    }
+  }
+}

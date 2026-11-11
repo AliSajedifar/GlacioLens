@@ -30,3 +30,7 @@ The Zenodo record credits Saurabh Kaushik, Beth Tellman, Ian Howat, Umesh Harita
 ## Saved-results reproduction data
 
 The `results/reproduction/` bundle includes GLB TEST reference labels and original valid support, losslessly packed as binary arrays, plus generated predictions and derived per-tile/group statistics for the named systems. Preserve the GLB dataset's CC BY 4.0 attribution when redistributing this dataset-derived compilation. No reference-model weights are included. The new evaluation and rendering code uses the project code license, Apache-2.0; it does not relicense the dataset or upstream models. The full reference citation and distinctions between dataset-record and paper authors are recorded above.
+
+## Separate three-case inference example
+
+The small HF example archive supplies the exact original qualified image/DEM/usability inputs and retained predictions. Raw inputs remain outside the GitHub source. GLB images retain CC BY 4.0 attribution; the public Copernicus GLO-30 COG adaptations carry their prescribed notice and applicable product terms. See [example data notices](examples/native_demo_DATA_NOTICES.md) and the [pinned example guide](docs/native_demo.md). No source/weight license overrides those data terms.

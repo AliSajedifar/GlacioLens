@@ -64,6 +64,7 @@ cd GlacioLens
 
 - **Rebuild the measured comparison tables:** the [CPU results package](results/reproduction/README.md) includes saved masks, per-tile counts, group IDs and exact metric/bootstrap settings. It reconstructs the four measured TEST rows without weights or a GPU.
 - **Run the tools on CPU:** the [quickstart](docs/quickstart.md) installs the package and evaluates a small synthetic mask example without weights or satellite data.
+- **Try the real three-case example:** [download verified inputs and compare the expected masks](docs/native_demo.md), using the unchanged checkpoint and recorded L4 setup.
 - **Predict real imagery:** download the [public model weights](https://huggingface.co/MaxiWb/glaciolens-glb-v1) using the [pinned instructions](docs/inference.md#checkpoint-download), then follow the [inference guide](docs/inference.md) to produce georeferenced masks from your local inputs.
 - **Understand or reproduce the method:** verify the [exact split and sampling metadata](data/manifests/README.md), then read the [architecture](docs/method.md), [recorded training recipe](docs/reproduction.md) and [model card](MODEL_CARD.md).
 

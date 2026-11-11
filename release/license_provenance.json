@@ -256,8 +256,8 @@
     {
       "asset": "GLB/GLBC imagery, labels and split lists",
       "verified_terms": "Zenodo record 17917359 declares CC BY 4.0, open access; deposit calls challenge component GLC",
-      "included": "Attributed three-case display preview and sanitized split/source/sampling metadata only; no raw raster datasets.",
-      "scope_note": "Only the reviewed attributed preview and sanitized metadata are redistributed. Raw rasters and DEM sidecars remain excluded; applicable provider notices are retained.",
+      "included": "Attributed preview, sanitized metadata and compact saved TEST labels/support/predictions in source; three original GLB example images delivered separately on HF.",
+      "scope_note": "CC BY 4.0 dataset attribution preserved. Raw inference assets are excluded from GitHub; the exact HF sample is pinned by examples/native_demo.json.",
       "license": "CC-BY-4.0",
       "notice": "THIRD_PARTY_NOTICES.md#glb-and-glbc-data-attribution"
     },
@@ -266,7 +266,12 @@
       "included": false,
       "verified_terms": "Official free GLO-30 license guidance with prescribed source/adaptation notices",
       "source": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
-      "unresolved": "Future sidecar/DEM-panel packaging must bind product terms and prescribed adapted-data notice"
+      "separate_example": {
+        "pin": "examples/native_demo.json",
+        "source_variant": "Public copernicus-dem-30m COG; provider describes 2021 release",
+        "notice": "examples/native_demo_DATA_NOTICES.md",
+        "scope": "Three original qualified adapted sidecars and genuine usability; no refetch or reconstruction, outside GitHub source."
+      }
     },
     {
       "asset": "Synthetic example and aggregate plot",
