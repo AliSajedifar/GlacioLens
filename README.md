@@ -1,16 +1,18 @@
 # GlacioLens
 
-**Multimodal deep learning for glacial lake segmentation**
+[![CPU checks](https://github.com/AliSajedifar/GlacioLens/actions/workflows/cpu.yml/badge.svg?branch=main)](https://github.com/AliSajedifar/GlacioLens/actions/workflows/cpu.yml) [![Model weights](https://img.shields.io/badge/Model%20weights-Hugging%20Face-yellow)](https://huggingface.co/MaxiWb/glaciolens-glb-v1) [![Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue)](LICENSE)
 
-GlacioLens maps glacial lakes in satellite imagery, combining a fine-tuned **TerraMind-Large encoder**, **UPerNet decoder** and a custom spatial refinement pathway. It brings together optical imagery, stored SAR channels and physical elevation in a system designed to improve small-lake recovery and shoreline delineation on the original image grid.
+**Multimodal glacial lake mapping with spatial refinement and reproducible evaluation**
+
+GlacioLens maps glacial lakes from optical/SAR imagery and physical elevation using a fine-tuned **TerraMind-Large encoder**, **UPerNet decoder** and a custom spatial refinement pathway. The system is designed to improve small-lake recovery and shoreline delineation on the original image grid.
 
 **87.84% two-class mIoU · 76.76% lake IoU · 1,913 recorded GLB TEST tiles**
 
-[Results](docs/results.md) · [Model weights](https://huggingface.co/MaxiWb/glaciolens-glb-v1) · [Run inference](docs/inference.md) · [Method](docs/method.md)
+[Results](docs/results.md) · [Reproduce results](results/reproduction/README.md) · [Try real examples](docs/native_demo.md) · [Model weights](https://huggingface.co/MaxiWb/glaciolens-glb-v1) · [Method](docs/method.md)
 
 ![Selected successful GlacioLens examples: a large lake, a clear lake and a small lake, with satellite RGB, labels, predictions and error maps](docs/figures/glaciolens_qualitative.png)
 
-**Selected successful examples:** a large lake, a clear lake and a small lake, using original released-model predictions. These are illustrative selections, not a statistical sample. Imagery and labels: [Glacial-Lake-Bench](https://zenodo.org/records/17917359), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+**Selected successful examples:** large, clear and small lakes, using original released-model predictions. Illustrative selections, not a statistical sample. Imagery and labels: [Glacial-Lake-Bench](https://zenodo.org/records/17917359), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 <details>
 <summary>Case IDs, rendering and attribution</summary>
@@ -23,17 +25,16 @@ From top to bottom: `GL_S2A_22WDT_20200717_0_L2A_146`, `NZ_S2B_59GLM_20200814_1_
 
 ## What I built
 
-- **Multimodal model integration.** Combined six optical channels, two stored SAR channels and aligned physical elevation in a TerraMind-based segmentation system.
-- **Context-aware spatial refinement.** Implemented a lightweight, 57,249-parameter residual pathway that combines local image detail with live decoder features during the same forward pass.
-- **Component-aware training and usable inference.** Integrated small-object and hard-negative objectives with fixed supplementary sampling, then released the selected weights and a GeoTIFF prediction CLI with input-alignment, preprocessing and checkpoint-integrity checks.
+- **Multimodal integration and fine-tuning.** Fine-tuned a ~319M-parameter TerraMind-Large/UPerNet system combining optical imagery, stored SAR channels and physical elevation.
+- **Custom spatial refinement.** Built a compact **57,249-parameter** residual pathway that combines local image detail with live decoder features during the same forward pass.
+- **Task-specific training.** Integrated small-object and hard-negative objectives with fixed supplementary sampling for glacial lake segmentation.
+- **Reproducible evaluation and inference.** Released model weights, a GeoTIFF prediction CLI, an exact three-case input/output example, and CPU tools that rebuild the measured comparison tables from public saved masks.
 
-The [project overview](docs/project_overview.md) explains the engineering decisions and evidence. TerraMind and UPerNet are credited upstream architectures; these contributions concern their task-specific integration and adaptation.
+[Engineering decisions and contribution details](docs/project_overview.md). TerraMind and UPerNet are credited upstream architectures; this project integrates and adapts them for the task.
 
 ## Results
 
-**GlacioLens-GLB-v1 achieves 87.84% two-class mIoU on GLB TEST, exceeding all 15 GLB scores reported in [Cryo-Bench v5, Table VIII-B](https://arxiv.org/html/2603.01576v5#S5.T8a).** The highest reported comparator is TerraMind at **83.97%**, a difference of **+3.87 percentage points**.
-
-This is a comparison of reported complete-system results: GlacioLens uses additional physical DEM and its own training recipe. The [comparison guide](docs/results.md#external-scalar-reference) identifies the reference regimes and evaluation scope.
+**GlacioLens-GLB-v1 scores 87.84% two-class mIoU on GLB TEST, above all 15 GLB scores reported in [Cryo-Bench v5, Table VIII-B](https://arxiv.org/html/2603.01576v5#S5.T8a).** The highest reported comparator is TerraMind at **83.97%**, a difference of **+3.87 percentage points**.
 
 | Evaluation population | Tiles / observations | Two-class mIoU | Lake IoU |
 |---|---:|---:|---:|
@@ -41,38 +42,49 @@ This is a comparison of reported complete-system results: GlacioLens uses additi
 | **GLB test** | **1,913** | **87.84%** | **76.76%** |
 | Dependent GLBC stress cohort | 1,105 | 83.75% | 69.06% |
 
-The GLB partition contains **15,300 training, 1,912 validation and 1,913 test tiles**, matching Cryo-Bench's split table. [Dataset provenance](docs/reproduction.md#dataset-version-and-split-sizes) explains the source versions and the dataset paper's different headline total.
-
 ### Small lakes and boundaries
 
-On the same test tiles, GlacioLens improves over the **released frozen-encoder TerraMind reference** with its trained GLB decoder:
+| Measure on the same recorded TEST tiles | Released frozen-encoder TerraMind | GlacioLens | Change |
+|---|---:|---:|---:|
+| Boundary F1 | 64.22% | **74.23%** | **+10.01 pp** |
+| Tiny targets reaching at least 50% ground-truth coverage | 20 / 275 | **143 / 275** | +123 targets |
 
-| Measure | Released frozen TerraMind | GlacioLens |
-|---|---:|---:|
-| Tiny targets reaching at least 50% ground-truth coverage | 20 / 275 | **143 / 275** |
-| Object F1 at IoU 0.50 | 48.63% | **60.18%** |
-| Boundary F1 | 64.22% | **74.23%** |
+Tiny targets are complete 16–63-pixel ground-truth objects. Coverage measures the fraction of each target covered by the prediction. [Detailed results](docs/results.md#small-lakes-boundaries-and-false-detections) include object F1, other references, false-detection tradeoffs and uncertainty intervals.
 
-These are separately reproduced reference results, distinct from the paper's selected fine-tuned TerraMind row. The area of entirely false detections decreases, while their count increases. [Detailed results](docs/results.md#small-lakes-boundaries-and-false-detections) include all measured references, definitions, false-detection tradeoffs and existing uncertainty intervals.
+The published-score comparison uses additional DEM input and a different training recipe. Small-lake and boundary comparisons use the released frozen-encoder TerraMind reference. See the [results guide](docs/results.md) for evaluation details.
 
-## Use the project
+## Try GlacioLens
 
 ```sh
 git clone https://github.com/AliSajedifar/GlacioLens.git
 cd GlacioLens
 ```
 
-- **Rebuild the measured comparison tables:** the [CPU results package](results/reproduction/README.md) includes saved masks, per-tile counts, group IDs and exact metric/bootstrap settings. It reconstructs the four measured TEST rows without weights or a GPU.
-- **Run the tools on CPU:** the [quickstart](docs/quickstart.md) installs the package and evaluates a small synthetic mask example without weights or satellite data.
-- **Try the real three-case example:** [download verified inputs and compare the expected masks](docs/native_demo.md), using the unchanged checkpoint and recorded L4 setup.
-- **Predict real imagery:** download the [public model weights](https://huggingface.co/MaxiWb/glaciolens-glb-v1) using the [pinned instructions](docs/inference.md#checkpoint-download), then follow the [inference guide](docs/inference.md) to produce georeferenced masks from your local inputs.
-- **Understand or reproduce the method:** verify the [exact split and sampling metadata](data/manifests/README.md), then read the [architecture](docs/method.md), [recorded training recipe](docs/reproduction.md) and [model card](MODEL_CARD.md).
+### Reproduce the results on CPU
 
-Native prediction expects registered, fully valid **11-band 256 × 256 images**, aligned physical DEM in metres and a genuine usability mask. Labels are not required. The documented inference environment uses NVIDIA L4; detailed input and environment requirements are in the inference guide. The CLI is `glacial-lake` and the Python package is `glacial_lake`.
+Rebuild the four measured TEST comparisons and their uncertainty intervals from the published masks. No checkpoint, satellite download or GPU is needed. From the repository root in a separate CPU Python environment:
+
+```sh
+python -m pip install -e .
+python -m pip install numpy==2.3.5 scipy==1.17.0
+python tools/reproduce_results.py --output artifacts/reproduced_results
+```
+
+The output includes comparison tables, intervals and a verification record. [Results reproduction guide](results/reproduction/README.md).
+
+### Run the three-case example
+
+*Recorded NVIDIA L4 setup*
+
+Try the model with three ready-to-use satellite images, aligned elevation/support files and expected masks. Start with the [three-case example guide](docs/native_demo.md): it covers the verified download, checkpoint, L4 setup, prediction and output comparison.
+
+Download, input checks and output comparison run on CPU; model inference uses the recorded NVIDIA L4 environment. The example preserves the qualified input order and batches. For your own imagery, follow the [inference guide](docs/inference.md).
+
+Installation exercises and metadata tools are in the [CPU quickstart](docs/quickstart.md). [Method and training reproduction](docs/reproduction.md) document the recorded recipe and exact split/sampling metadata; a portable end-to-end training launcher is not yet supplied.
 
 ## Research scope
 
-The results describe one final training seed on a historically exposed benchmark split with shared acquisitions and aliases; GLBC is a dependent stress cohort. Small-lake recovery comes with false-detection and lake-extent tradeoffs. [The model card](MODEL_CARD.md#limitations-and-tradeoffs) documents these limits. Inference is available; a portable end-to-end training launcher is not yet supplied.
+Results reflect one final seed on the recorded GLB split, with historical development exposure. See the [model card](MODEL_CARD.md#limitations-and-tradeoffs) for the full evaluation protocol and generalization scope.
 
 ## License, attribution and maintainer
 

@@ -26,6 +26,8 @@
     "docs/figures/README.md",
     "docs/figures/glaciolens_qualitative.json",
     "docs/figures/glaciolens_qualitative.png",
+    "docs/figures/glaciolens_social.json",
+    "docs/figures/glaciolens_social.png",
     "docs/figures/p56_results.png",
     "docs/inference.md",
     "docs/method.md",
@@ -97,6 +99,7 @@
     "tools/native_demo.py",
     "tools/object_boundary_metrics.py",
     "tools/render_qualitative.py",
+    "tools/render_social_preview.py",
     "tools/reproduce_results.py",
     "tools/verify_data_manifest.py"
   ]

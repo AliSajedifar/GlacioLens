@@ -25,3 +25,17 @@ No model, checkpoint, GPU, DEM or training runtime is needed to reproduce the fi
 Imagery and reference labels: [Glacial-Lake-Bench, Kaushik et al. (2026), Zenodo17917359](https://zenodo.org/records/17917359), [CC BY4.0](https://creativecommons.org/licenses/by/4.0/). The original data record credits Saurabh Kaushik, Beth Tellman, Ian Howat, Umesh Haritashya and Lalit Maurya. Display adaptations are RGB selection, contrast stretching and matched crop enlargement; prediction/error overlays are by GlacioLens. See [third-party notices](../../THIRD_PARTY_NOTICES.md).
 
 The previously displayed missed-extent case remains available through its [immutable figure](https://raw.githubusercontent.com/AliSajedifar/GlacioLens/1bb1b6eb192bf491b2a9b09aa2c56c9a4efe6204/docs/figures/glaciolens_qualitative.png) and [case provenance](https://github.com/AliSajedifar/GlacioLens/blob/1bb1b6eb192bf491b2a9b09aa2c56c9a4efe6204/docs/figures/glaciolens_qualitative.json). The current showcase changes presentation, not the quantitative evaluation or documented limitations.
+
+## Social preview
+
+The [social preview](glaciolens_social.png) uses the same verified large-lake image and released prediction, with pooled TEST metrics displayed separately. Its [provenance](glaciolens_social.json) records the source arrays, display settings, headline values and attribution.
+
+After obtaining the imagery with the fetcher above, recreate it on CPU:
+
+```sh
+python tools/render_social_preview.py --image-root example_data --output example_outputs/glaciolens_social.png --receipt example_outputs/social_preview_receipt.json
+```
+
+The renderer checks source and mask identities and reads the headline scores from `results/metrics.csv`. It uses the existing plotting dependencies and Matplotlib's bundled DejaVu fonts. Package or font versions can change rendered bytes without changing the checked scientific data. The original prediction is not smoothed; nearest-neighbor scaling is only for display. Dataset attribution and the existing third-party notices apply to this adapted figure.
+
+The PNG is 1280 × 640 and under 1 MB. To use it as the repository link preview, upload it through GitHub **Settings → Social preview → Edit → Upload an image**; committing the file alone does not change that setting. See [GitHub's instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview).

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "model": "GlacioLens-GLB-v1",
+  "image": {
+    "path": "docs/figures/glaciolens_social.png",
+    "width": 1280,
+    "height": 640,
+    "bytes": 253610,
+    "sha256": "fc334c7d63e7d48085f850fb3b38e9362051fe546319cf594e04a62a7f703dae"
+  },
+  "renderer": {
+    "path": "tools/render_social_preview.py",
+    "sha256": "076099203af05bc6168b82b81e1d31bb78c6bee98d61d9bcd03c1363ac014c19",
+    "numpy": "2.3.5",
+    "pillow": "13.0.0",
+    "matplotlib": "3.10.8",
+    "tifffile": "2026.11.8",
+    "font_sha256": {
+      "regular": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "bold": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    }
+  },
+  "source": {
+    "case_id": "GL_S2A_22WDT_20200717_0_L2A_146",
+    "showcase_config": "docs/figures/glaciolens_qualitative.json",
+    "showcase_config_sha256": "d6c955603215e7f6e3d0ea64f184bb7ec2f6a4ee952b49b6b42cfc1967979fa1",
+    "image_sha256": "f99ba8b2a1a5cd9645098e95b3634eb48300738391d8b48f2fb6ba37518a856a",
+    "mask_bundle_sha256": "155fb9e1e4e0a46d2ad27c1794582570daf4944588b80a7fcc4ad66a1d055dca",
+    "prediction_packed_sha256": "79a3aaf3a90423504eff9a2b3639f65015a877ff63798793d750ed8bc7c69fa0",
+    "target_packed_sha256": "f3d6303c7fafe0a11d610dd658542332cdea99e4c7a7c0a9955e5ec968000519",
+    "counts": {
+      "tp": 18420,
+      "fp": 342,
+      "fn": 399,
+      "tn": 46375
+    }
+  },
+  "display": {
+    "native_shape": [
+      256,
+      256
+    ],
+    "full_extent": true,
+    "rendered_panel_shape": [
+      430,
+      430
+    ],
+    "resize": "nearest",
+    "rgb_zero_based_slots": [
+      2,
+      1,
+      0
+    ],
+    "rgb_low": [
+      0.05301732197403908,
+      0.04584370888769627,
+      0.04625355079770088
+    ],
+    "rgb_high": [
+      0.3548448383808136,
+      0.3616165518760681,
+      0.34872159361839294
+    ],
+    "prediction_fill_alpha": 0.28,
+    "prediction_inner_boundary_alpha": 0.94,
+    "scientific_mask_modified": false,
+    "generative_imagery": false
+  },
+  "headline_metrics": {
+    "population": "recorded GLB TEST",
+    "images": 1913,
+    "two_class_miou_percent": 87.837262847,
+    "lake_iou_percent": 76.764361706,
+    "scope": "Pooled dataset metrics; not selected-image metrics",
+    "source": "results/metrics.csv",
+    "source_sha256": "2ea9567d17b87ceca8b9467db115d86667b3a4393b8cad450d326cd09da13ac7"
+  },
+  "attribution": {
+    "dataset": "Glacial-Lake-Bench, Kaushik et al. (2026), Zenodo 17917359",
+    "dataset_authors": [
+      "Saurabh Kaushik",
+      "Beth Tellman",
+      "Ian Howat",
+      "Umesh Haritashya",
+      "Lalit Maurya"
+    ],
+    "paper": "https://doi.org/10.5194/essd-2026-474",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "adaptations_by": "GlacioLens"
+  },
+  "github_requirements": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview",
+  "model_calls": 0,
+  "gpu_allocations": 0
+}
